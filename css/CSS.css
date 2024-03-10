@@ -1,0 +1,22 @@
+
+/*最上層的資訊選單*/
+.overlay {
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255);
+
+    
+}
+
+/* 设置内容容器样式 */
+.content {
+    width: 80%;
+    max-width: 800px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    overflow-y: auto; /* 允许内容区域滚动 */
+    max-height: 80%; /* 设置最大高度，以确保内容不会超出屏幕 */
+}
