@@ -1,5 +1,3 @@
-
-/*最上層的資訊選單*/
 .overlay {
     box-sizing: border-box;
     position: sticky;
@@ -10,13 +8,17 @@
     
 }
 
-/* 设置内容容器样式 */
+
 .content {
     width: 80%;
     max-width: 800px;
     background-color: white;
     padding: 20px;
     border-radius: 5px;
-    overflow-y: auto; /* 允许内容区域滚动 */
-    max-height: 80%; /* 设置最大高度，以确保内容不会超出屏幕 */
+    overflow-y: auto;
+    max-height: 80%;
+}
+
+.INDEX {
+    padding: 2pt; 
 }
