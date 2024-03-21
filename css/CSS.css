@@ -1,9 +1,20 @@
 html{
     scroll-behavior: smooth;
     transition: all 1s ease-in-out;
+    
+    /* 禁止反白 */
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    
+}
+
+body{
+    background-color: rgb(255, 232, 223);
 }
 
 /* header 相關物件 */
+
 #header-table{
     z-index: 30;
     width: 100%;
@@ -12,23 +23,26 @@ html{
     /* border-bottom: 1.5pt solid;  */
     border-color: rgba(95, 45, 5, 0.7);
     position: fixed;
-    background-color: rgb(214, 154, 113);
+    background-color: rgb(250, 208, 181);
 }
 
 .index{
     font-size: large;
-    font-family: '思源宋體';
+    font-family: '微軟正黑體';
     user-select:none;
     -webkit-user-select:none;
     -moz-user-select:none;
+    font-size: 12pt;
     height: 1em;
     color: rgb(124, 54, 26);
-    font-weight: 700;
+    font-weight: 600;
     margin-right: 0.5em;
+    /* 這是避免再分頁hover的時候出現底線顫抖 */
+    border-bottom: 5px solid rgba(250, 208, 181)
 }
 
 .index:hover{
-    transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in-out;
 }
 
 .index:not(:hover){
@@ -46,3 +60,26 @@ html{
     margin-right: 0.3em;
     padding-top: 0.3em;
 }
+
+
+/* 內容 */
+#A{
+    margin-top: 5.4em;
+    border: 5px solid;
+    position: absolute;
+    right: 0pt;
+    left: 0pt;
+}
+
+
+/* 頁腳 */
+.overlay_footer{
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: 1pt;
+    background-color: rgb(250, 208, 181);
+}
+
