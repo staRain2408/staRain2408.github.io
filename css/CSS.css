@@ -26,6 +26,10 @@ body{
         background-color: rgb(250, 208, 181);
     }
 
+    #header-table-RMD{
+        display: none;
+    }
+
     .index{
         font-size: large;
         font-family: '微軟正黑體';
@@ -72,7 +76,7 @@ body{
     }
 
     .Home_table{
-        width: 65%;
+        width: 70%;
     }
 
     .home_dis{
@@ -118,7 +122,7 @@ body{
 
     .content_2{
         font-weight: 400;
-        font-size: 1em; 
+        font-size: 1.1em; 
         margin-left: 0.5em;
         text-align: justify;
     }
@@ -167,6 +171,7 @@ body{
         top: 50pt;
     }
 
+
     /* 國小到碩士 */
     /* #ele_div{
         display: none;
@@ -212,7 +217,7 @@ body{
 }
 
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) and (min-width: 760px){
     /* .index{
         display: block;
     }
@@ -220,6 +225,208 @@ body{
     .link{
         display: block;
     } */
+    #header-table{
+        z-index: 30;
+        width: 100%;
+        top: 0;
+        left: 0;
+        /* border-bottom: 1.5pt solid;  */
+        border-color: rgba(95, 45, 5, 0.7);
+        position: absolute;
+        background-color: rgb(250, 208, 181);
+    }
+
+    #header-table-RMD{
+        display: none;
+    }
+
+    .index{
+        font-size: large;
+        font-family: '微軟正黑體';
+        user-select:none;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        font-size: 1em;
+        height: 1em;
+        color: rgb(124, 54, 26);
+        font-weight: 600;
+        margin-right: 0.5em;
+        /* 這是避免再分頁hover的時候出現底線顫抖 */
+        border-bottom: 5px solid rgba(250, 208, 181)
+    }
+
+    #photo{
+        width: 200pt;
+        height: 200pt;
+        border-radius: 50pt;
+    }
+
+    /* ---------------------------------------------------------------- */
+    /* 內容 - 首頁 */
+    #A{
+        margin-top: 8em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    .Home_table{
+        width: 100%;
+    }
+
+    .home_dis{
+        width: 70%;
+        padding-left: 1em;
+        padding-right: 1em;
+        display: block;
+    }
+
+    #photo{
+        display: flex;
+        /* margin-right: 3em;
+        margin-top: 3em; */
+        top: 0;
+        width: 20em;
+        height: 20em;
+        border-radius: 100em;
+    }
+
+    #photo:hover{
+        border-radius: 1em;
+        width: 25em;
+        height: 25em;
+        transition: all 0.3s ease-in-out;
+    }
+
+    :not(:hover){
+        transition: all 0.5s ease-out;
+    }
+
+    #content{
+        position: static;
+        font-weight: 600;
+        font-size: 1.2em; 
+        margin-left: 0.5em;
+        text-align: justify;
+    }
+
+    #content_div > q{
+        font-size: 1.2em;
+        background-color: rgba(255, 255, 255, 0);
+        font-weight: 400;
+    }
+
+    .content_2{
+        font-weight: 400;
+        font-size: 1.1em; 
+        margin-left: 0.5em;
+        text-align: justify;
+    }
+
+
+    .home_dis > h1{
+        font-weight: 800;
+        margin-left: 0.5em;
+        font-size: 2em;
+    }
+
+    .home_dis > h3{
+        font-weight: 600;
+        margin-left: 1em;
+        font-size: 1em; 
+    }
+
+    /* 學習歷程 */
+
+    #B{
+        margin-top: 8em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    #sch_table{
+        float: top;
+    }
+
+    #sch_table > div{
+        font-size: 1.2em;
+        font-weight: 800;
+        width: 65%; 
+    }
+
+    .scl_text{
+        font-size: 1em;
+        text-align: left;
+        text-align: justify;
+    }
+
+    .sch{
+        margin-top: 2em;
+        top: 50pt;
+    }
+
+    /* .course_td{
+        display: block;
+        text-align: center;
+    } */
+
+
+}
+
+
+@media screen and (max-width: 760px){
+    #header-table{
+        display: none;
+    }
+
+    #header-table-RMD{
+        z-index: 30;
+        width: 100%;
+        top: 0;
+        left: 0;
+        /* border-bottom: 1.5pt solid;  */
+        border-color: rgba(95, 45, 5, 0.7);
+        position: absolute;
+        background-color: rgb(250, 208, 181);
+    }
+
+    .index{
+        font-size: large;
+        font-family: '微軟正黑體';
+        user-select:none;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        font-size: 1em;
+        height: 1em;
+        color: rgb(124, 54, 26);
+        font-weight: 600;
+        margin-right: 0.5em;
+        /* 這是避免再分頁hover的時候出現底線顫抖 */
+        border-bottom: 5px solid rgba(250, 208, 181)
+    }
+
+    .index:hover{
+        transition: all 0.1s ease-in-out;
+    }
+
+    .index:not(:hover){
+        transition: all 0.5s ease-out;
+    }
+
+
+    .header-word{
+        color: rgb(124, 54, 26);
+    }
+
+    /* 多媒體連結 */
+    .header-link{
+        margin-left: 0.3em;
+        margin-right: 0.3em;
+        padding-top: 0.3em;
+    }
     
     #photo{
         width: 200pt;
@@ -227,16 +434,126 @@ body{
         border-radius: 50pt;
     }
 
+    /* ---------------------------------------------------------------- */
+    /* 內容 - 首頁 */
+    #A{
+        margin-top: 17em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    .Home_table{
+        width: 100%;
+    }
+
+    .home_dis{
+        width: 80%;
+        padding-left: 1em;
+        padding-right: 1em;
+        display: block;
+    }
+
+    #photo{
+        display: flex;
+        justify-content: center;
+        /* margin-right: 3em;
+        margin-top: 3em; */
+        top: 0;
+        width: 10em;
+        height: 10em;
+        border-radius: 100em;
+    }
+
+    #photo:hover{
+        border-radius: 1em;
+        width: 15em;
+        height: 15em;
+        transition: all 0.3s ease-in-out;
+    }
+
+    :not(:hover){
+        transition: all 0.5s ease-out;
+    }
+
+    #content{
+        position: static;
+        font-weight: 600;
+        font-size: 1.2em; 
+        margin-left: 0.5em;
+        text-align: justify;
+    }
+
+    #content_div > q{
+        font-size: 1.2em;
+        background-color: rgba(255, 255, 255, 0);
+        font-weight: 400;
+    }
+
+    .content_2{
+        font-weight: 400;
+        font-size: 1.1em; 
+        margin-left: 0.5em;
+        text-align: justify;
+    }
+
+
+    .home_dis > h1{
+        font-weight: 800;
+        margin-left: 0.5em;
+        font-size: 2em;
+    }
+
+    .home_dis > h3{
+        font-weight: 600;
+        margin-left: 1em;
+        font-size: 1em; 
+    }
+
+    /* 學習歷程 */
+    #B{
+        margin-top: 17em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    #sch_table{
+        float: top;
+    }
+
+    #sch_table > div{
+        font-size: 1.2em;
+        font-weight: 800;
+        width: 95%; 
+    }
+
+    .course_td{
+        display: block;
+        text-align: center;
+    }
+
+
+    .scl_text{
+        font-size: 1em;
+        text-align: left;
+        text-align: justify;
+    }
+
+    .sch{
+        margin-top: 2em;
+        top: 50pt;
+    }
 
 }
-
-
 
 /* 頁腳 */
 .overlay_footer{
     box-sizing: border-box;
-    position: fixed;
     width: 100%;
+    position: fixed;
     bottom: 0;
     left: 0;
     border-top: 1pt;
