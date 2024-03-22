@@ -32,7 +32,7 @@ body{
         user-select:none;
         -webkit-user-select:none;
         -moz-user-select:none;
-        font-size: 12pt;
+        font-size: 1em;
         height: 1em;
         color: rgb(124, 54, 26);
         font-weight: 600;
@@ -86,15 +86,15 @@ body{
         /* margin-right: 3em;
         margin-top: 3em; */
         top: 0;
-        width: 250pt;
-        height: 250pt;
-        border-radius: 200pt;
+        width: 20em;
+        height: 20em;
+        border-radius: 100em;
     }
 
     #photo:hover{
-        border-radius: 10pt;
-        width: 300pt;
-        height: 300pt;
+        border-radius: 1em;
+        width: 25em;
+        height: 25em;
         transition: all 0.3s ease-in-out;
     }
 
@@ -105,35 +105,35 @@ body{
     #content{
         position: static;
         font-weight: 600;
-        font-size: 14pt; 
-        margin-left: 5pt;
+        font-size: 1.2em; 
+        margin-left: 0.5em;
         text-align: justify;
     }
 
     #content_div > q{
-        font-size: 15pt;
+        font-size: 1.2em;
         background-color: rgba(255, 255, 255, 0);
         font-weight: 400;
     }
 
     .content_2{
         font-weight: 400;
-        font-size: 12pt; 
-        margin-left: 5pt;
+        font-size: 1em; 
+        margin-left: 0.5em;
         text-align: justify;
     }
 
 
     .home_dis > h1{
         font-weight: 800;
-        margin-left: 4pt;
-        font-size: 25pt;
+        margin-left: 0.5em;
+        font-size: 2em;
     }
 
     .home_dis > h3{
         font-weight: 600;
-        margin-left: 5pt;
-        font-size: 15pt; 
+        margin-left: 1em;
+        font-size: 1em; 
     }
 
 
@@ -151,13 +151,13 @@ body{
     }
 
     #sch_table > div{
-        font-size: 15pt;
+        font-size: 1.2em;
         font-weight: 800;
         width: 65%; 
     }
 
     .scl_text{
-        font-size: 12pt;
+        font-size: 1em;
         text-align: left;
         text-align: justify;
     }
