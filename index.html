@@ -35,34 +35,40 @@
             color: rgb(124, 54, 26);
         }
 
-        /* *{
+        q {
             font-family: "思源宋體";
             font-optical-sizing: auto;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 400;
             font-variation-settings:"wdth" 100;
-        } */
+        }
+
+        hr{
+            width: 50%;
+            border: 1pt solid rgb(185, 89, 52);
+            border-radius: 1em;
+        }
     </style>
 
 </head>
 <body>
     <header>
-        <table id = 'header-table' class="overlay">
+        <table border="0pt" id = 'header-table' class="overlay">
             <tr style="height: 2em;">
                 <td style = "width: 10%;" align = "center" rowspan="2">
                     <img src=".\icon\Page_icon.png" width = "75em" height = "75em" style="padding-top: 0.5em;"></img>
                 </td>
-                <td rowspan="2" ><div style="font-size: 1.5em;" align="left"><b index="hsiang" class="header-word" onmouseover="mOvername(this)" onmouseout="mOutname(this)">Hsiang-Yu's Homepage</b></div></td>
-                <td colspan="5" align="right">
-                    <span><a href="https://www.instagram.com/dyestuff_2408/" target="_blank"><img class="header-link" src=".\icon\IG_.png"  width = "25em" height = "25em"></img></a></span>
-                    <span><a href="https://www.facebook.com/share/fCS7Ld5nw2snnpQo/?mibextid=QwDbR1" target="_blank"><img class="header-link" src=".\icon\FB_.png"  width = "25em" height = "25em"></img></a></span>
-                    <span><a href="https://www.plurk.com/yang898420" target="_blank"><img class="header-link" src=".\icon\PLURK_.png"  width = "25em" height = "25em"></img></a></span>
-                    <span style="margin-right: 1.5em;"><a href="mailto:yang898420@gmail.com/" target="_blank"><img class="header-link" src=".\icon\GMAIL_.png"  width = "25em" height = "25em"></img></a></span>
+                <td rowspan="2"><div style="font-size: 1.5em;" align="left"><b index="hsiang" class="header-word" onmouseover="mOvername(this)" onmouseout="mOutname(this)">Hsiang-Yu's Homepage</b></div></td>
+                <td colspan="5" align="right" >
+                    <span class="link"><a href="https://www.instagram.com/dyestuff_2408/" target="_blank"><img class="header-link" src=".\icon\IG_.png"  width = "25em" height = "25em"></img></a></span>
+                    <span class="link"><a href="https://www.facebook.com/share/fCS7Ld5nw2snnpQo/?mibextid=QwDbR1" target="_blank"><img class="header-link" src=".\icon\FB_.png"  width = "25em" height = "25em"></img></a></span>
+                    <span class="link"><a href="https://www.plurk.com/yang898420" target="_blank"><img class="header-link" src=".\icon\PLURK_.png"  width = "25em" height = "25em"></img></a></span>
+                    <span class="link"><a href="mailto:yang898420@gmail.com/" target="_blank"><img class="header-link" src=".\icon\GMAIL_.png"  width = "25em" height = "25em"></img></a></span>
                 </td>
                 <td style = "width: 0.5%;"></td>
             </tr>
             <tr style="height: 1.5em;" >
-                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_A(this)">首    頁</td>
+                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_A(this)">首&emsp;頁</td>
                 <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_B(this)">學業經歷</td>
                 <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_C(this)">休閒興趣</td>
                 <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_D(this)">工作經驗</td>
@@ -73,22 +79,90 @@
     </header>
 
     
-    <div id = 'A'>
+    <div id = 'A' align="center">
+        <table class="Home_table" align="center" border="0pt" style="height: 37.5em;">
+            <tr style="width: 100%;">
+                <td class="home_dis" align="center">
+                    <img id="photo" src=".\img\個人照CLIP.png" ></img>
+                </td>
+                <td class="home_dis">  
+                    <!-- <h3>晚安晚安</h3> -->
+                    <h1>我是楊翔瑜!</h1>
+                    <div id="content_div">
+                        <q>以睡覺優先演算法實現最短路徑搜尋</q><br/>
+                        <q>高雄溫體牛肉火鍋是唯一信仰</q>
+                        <br/>
+                        <p id="content">臺灣師範大學地理學系碩士班小實習生，嘗試使用交通數據探討通勤議題，寶可夢葉伊布控。</p>
+                        
+                        <hr style="width: 100%;" align="center"/>
+                        <p class="content_2">
+                            專&emsp;長:&ensp;空間資訊系統(ArcGIS、QGIS)、程式設計(Python)。
+                            <br/><br/>
+                            曾接觸:&ensp;機器學習與深度學習(Python)、統計軟體(SPSS、R)、資料庫(MySQL、PostgreSQL)、網頁前後端設計(JavaScript、PHP)、大地測量與遙測、環境教育、桌上遊系設計。
+                        </p>
+                    </div>
+                </td>
+                
+            </tr>
 
-        <div style = "z-index: 2; width: 50%; margin: 0 auto; height: 150pt;" class = 'pic'>
-            <img src=".\img\個人照CLIP.png" width = "400pt" height="400pt" style="border-radius: 5pt; float: right; z-index: 2; position: relative; top: 20px; right: 20px;"></img>
-        </div>
-        
-
+            <!-- <tr style="height: 20em; width: 75%;">
+                <td>1</td>
+                <td>1</td>
+            </tr> -->
+        </table>
         
     </div>
 
-    <div hidden = true id = 'B' style = "width: 50%; margin: 0 auto;" align = "center">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
+    <div hidden = true id = 'B' align="center">
+        <table class="Home_table" border="0pt">
+            <tr style="width: 100%;" align="center">
+                <td>
+                    <div id="sch_table">
+                        <div id="ele" class="sch">臺中市賴厝民小學
+                            <div id="ele_div">
+                                <hr/>
+                                <p class="scl_text">位於臺中市北區的一所愜意小學。其中最印象深刻且引以為傲的事情是「傳統上小四小五生在運動會的時候固定要跳Lucy健康操，但輪到本屆上場時學校跟隨潮流，安排演出時下最夯的韓國男團SUPER JUNIOR的<b>"SORRY, SORRY"</b>。此外，隔年表演另一首流行樂Wonder Girls的<b>"NOBODY"</b>，令應屆年級走在時尚的尖端。」</p>
+                            </div>
+                        </div>
+                        
+                        <div id="jun" class="sch">臺中市私立衛道高級中學附設國中部
+                            <div id="jun_div">
+                                <hr/>
+                                <p class="scl_text">位於臺中市北屯區的私立完全中學，包辦國中與高中教育，以嚴謹的教學風氣聞名。但也存在許多都市傳說，其中之一為學聖樓外測庭園水池<b>衛道湖</b>的池水中沉著國中美術老師的腳踏車，在颱風天停班停課時湖中女神會在衛道湖周邊漫出水窪的泥濘地上騎車。許多同學畢業前選擇直升高中部，包含我。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="sen" class="sch">臺中市私立衛道高級中學
+                            <div id="sen_div">
+                                <hr/>
+                                <p class="scl_text">高中時始接觸地理資訊系統，由於當時英文太爛先是以使用QGIS為主，因緣際會跑去臺師大參加第15屆地理奧林匹亞競賽，也常跟著地理老師以考察之名義到處出吃喝玩樂。後來學校申請了ArcGIS Pro序號，且同時高中端的多元學習選修課程被逐步測試與進行，更一步接觸地理資訊系統。</p>
+                            </div>
+                        </div>
+
+                        <div id="uni" class="sch">國立臺灣師範大學 地理學系學士班
+                            <div id="uni_div">
+                                <hr/>
+                                <p class="scl_text">位於臺中市北區的一所愜意小學</p>
+                            </div>
+                        </div>
+
+                        <div id="mas" class="sch">國立臺灣師範大學 地理學系碩士班
+                            <div id="mas_div">
+                                <hr/>
+                                <p class="scl_text">位於臺中市北區的一所愜意小學</p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+    
+    <!-- <div hidden = true id = 'B' style = "width: 50%; margin: 0 auto;" align = "center">
+
         <h2>學業經歷<sup style="font-size: 10pt;">這之後會放在其他頁面</sup></h2>
         <div>
             <ul type = "square" style = "width: 40%">
@@ -104,7 +178,7 @@
             <hr/>
             <br/>
         </div>
-    </div>
+    </div> -->
 
     
 
