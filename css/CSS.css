@@ -312,7 +312,7 @@ body{
     }
 
     #content_div > q{
-        font-size: 0.75em;
+        font-size: 1.2em;
         background-color: rgba(255, 255, 255, 0);
         font-weight: 400;
     }
@@ -328,7 +328,7 @@ body{
     .home_dis > h1{
         font-weight: 800;
         margin-left: 0.5em;
-        font-size: 1.5em;
+        font-size: 2em;
     }
 
     .home_dis > h3{
@@ -480,20 +480,20 @@ body{
     #content{
         position: static;
         font-weight: 600;
-        font-size: 1.2em; 
+        font-size: 1em; 
         margin-left: 0.5em;
         text-align: justify;
     }
 
     #content_div > q{
-        font-size: 0.75em;
+        font-size: 0.89em;
         background-color: rgba(255, 255, 255, 0);
         font-weight: 400;
     }
 
     .content_2{
         font-weight: 400;
-        font-size: 1.1em; 
+        font-size: 0.9em; 
         margin-left: 0.5em;
         text-align: justify;
     }
@@ -502,13 +502,13 @@ body{
     .home_dis > h1{
         font-weight: 800;
         margin-left: 0.5em;
-        font-size: 1em;
+        font-size: 1.2em;
     }
 
     .home_dis > h3{
         font-weight: 600;
         margin-left: 1em;
-        font-size: 0.8em; 
+        font-size: 1em; 
     }
 
     /* 學習歷程 */
