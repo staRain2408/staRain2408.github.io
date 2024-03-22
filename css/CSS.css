@@ -502,13 +502,13 @@ body{
     .home_dis > h1{
         font-weight: 800;
         margin-left: 0.5em;
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     .home_dis > h3{
         font-weight: 600;
         margin-left: 1em;
-        font-size: 1em; 
+        font-size: 0.8em; 
     }
 
     /* 學習歷程 */
