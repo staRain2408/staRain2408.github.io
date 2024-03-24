@@ -1,0 +1,555 @@
+/* 顯示照片區 */
+@media screen and (min-width: 1200px){
+    @keyframes leftIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rightIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    #matro_Y{
+        position: fixed;
+        width: 200pt;
+        left: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_Y{
+        position: fixed;
+        width: 200pt;
+        right: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #Y:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #Y:hover #matro_Y{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #Y:hover #dist_Y{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_G{
+        position: fixed;
+        width: 200pt;
+        left: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_G{
+        position: fixed;
+        width: 200pt;
+        right: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #G:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #G:hover #matro_G{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #G:hover #dist_G{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+
+    #matro_Bn{
+        position: fixed;
+        width: 200pt;
+        left: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_Bn{
+        position: fixed;
+        width: 200pt;
+        right: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #Bn:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #Bn:hover #matro_Bn{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #Bn:hover #dist_Bn{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_SG{
+        position: fixed;
+        width: 200pt;
+        left: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_SG{
+        position: fixed;
+        width: 200pt;
+        right: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #SG:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #SG:hover #matro_SG{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #SG:hover #dist_SG{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_R{
+        position: fixed;
+        width: 200pt;
+        left: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_R{
+        position: fixed;
+        width: 200pt;
+        right: 1em;
+        top: 10em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #R:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #R:hover #matro_R{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #R:hover #dist_R{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 760px){
+    @keyframes leftIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rightIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    #matro_Y{
+        position: fixed;
+        width: 140pt;
+        left: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_Y{
+        position: fixed;
+        width: 140pt;
+        right: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #Y:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #Y:hover #matro_Y{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #Y:hover #dist_Y{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_G{
+        position: fixed;
+        width: 140pt;
+        left: 1em;
+        top: 15em; 
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_G{
+        position: fixed;
+        width: 140pt;
+        right: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #G:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #G:hover #matro_G{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #G:hover #dist_G{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+
+    #matro_Bn{
+        position: fixed;
+        width: 140pt;
+        left: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_Bn{
+        position: fixed;
+        width: 140pt;
+        right: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #Bn:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #Bn:hover #matro_Bn{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #Bn:hover #dist_Bn{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_SG{
+        position: fixed;
+        width: 140pt;
+        left: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_SG{
+        position: fixed;
+        width: 140pt;
+        right: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #SG:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #SG:hover #matro_SG{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #SG:hover #dist_SG{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_R{
+        position: fixed;
+        width: 140pt;
+        left: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_R{
+        position: fixed;
+        width: 140pt;
+        right: 1em;
+        top: 15em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #R:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #R:hover #matro_R{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #R:hover #dist_R{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+}
+
+@media screen and (max-width: 760px){
+    @keyframes leftIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rightIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    #matro_Y{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 17em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_Y{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 3em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #Y:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #Y:hover #matro_Y{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #Y:hover #dist_Y{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_G{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 17em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_G{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 3em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #G:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #G:hover #matro_G{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #G:hover #dist_G{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+
+    #matro_Bn{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 17em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_Bn{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 3em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #Bn:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #Bn:hover #matro_Bn{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #Bn:hover #dist_Bn{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_SG{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 17em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_SG{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 3em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #SG:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #SG:hover #matro_SG{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #SG:hover #dist_SG{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+
+
+
+    #matro_R{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 17em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #dist_R{
+        position: fixed;
+        width: 80pt;
+        right: 1em;
+        bottom: 3em;
+        border-radius: 0.5em;
+        display: none;
+    }
+
+    #R:hover{
+        color: rgb(255, 169, 20);
+        font-weight: 900;
+    }
+    #R:hover #matro_R{
+        display: block;
+        animation: leftIn 0.4s linear 0s;
+    }
+    #R:hover #dist_R{
+        display: block;
+        animation: rightIn 0.4s linear 0s;
+    }
+}

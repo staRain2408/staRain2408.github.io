@@ -1,0 +1,266 @@
+@media screen and (max-width: 760px){
+    #header-table{
+        display: none;
+    }
+
+    #header-table-RMD{
+        z-index: 30;
+        width: 100%;
+        top: 0;
+        left: 0;
+        /* border-bottom: 1.5pt solid;  */
+        border-color: rgba(95, 45, 5, 0.7);
+        position: absolute;
+        background-color: rgb(250, 208, 181);
+    }
+
+    .index{
+        font-size: large;
+        font-family: '微軟正黑體';
+        user-select:none;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        font-size: 1em;
+        height: 1em;
+        color: rgb(124, 54, 26);
+        font-weight: 600;
+        margin-right: 0.5em;
+        /* 這是避免再分頁hover的時候出現底線顫抖 */
+        border-bottom: 5px solid rgba(250, 208, 181)
+    }
+
+    .index:hover{
+        transition: all 0.1s ease-in-out;
+    }
+
+    .index:not(:hover){
+        transition: all 0.5s ease-out;
+    }
+
+
+    .header-word{
+        color: rgb(124, 54, 26);
+    }
+
+    /* 多媒體連結 */
+    #RWD_media{
+        position: fixed;
+        display: block;
+        right: 0.5em;
+        bottom: 2.5em;
+    }
+    
+    .header-link-RWD{
+        margin-left: 0.3em;
+        margin-right: 0.3em;
+        padding-top: 0.3em;
+        width: 18pt;
+        height: 18pt;
+    }
+    
+    #photo{
+        width: 200pt;
+        height: 200pt;
+        border-radius: 50pt;
+    }
+
+    
+
+    /* ---------------------------------------------------------------- */
+    /* 內容 - 首頁 */
+    #A{
+        margin-top: 17em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    .Home_table{
+        width: 100%;
+    }
+
+    .home_dis{
+        width: 75%;
+        padding-left: 1em;
+        padding-right: 1em;
+        display: block;
+    }
+
+    #photo{
+        display: flex;
+        justify-content: center;
+        /* margin-right: 3em;
+        margin-top: 3em; */
+        top: 0;
+        width: 10em;
+        height: 10em;
+        border-radius: 100em;
+    }
+
+    #photo:hover{
+        border-radius: 1em;
+        width: 15em;
+        height: 15em;
+        transition: all 0.3s ease-in-out;
+    }
+
+    :not(:hover){
+        transition: all 0.5s ease-out;
+    }
+
+    #content{
+        position: static;
+        font-weight: 600;
+        font-size: 1em; 
+        margin-left: 0.5em;
+        text-align: justify;
+    }
+
+    #content_div > q{
+        font-size: 0.89em;
+        background-color: rgba(255, 255, 255, 0);
+        font-weight: 400;
+    }
+
+    .content_2{
+        font-weight: 400;
+        font-size: 0.9em; 
+        margin-left: 0.5em;
+        text-align: justify;
+    }
+
+
+    .home_dis > h1{
+        font-weight: 800;
+        margin-left: 0.5em;
+        font-size: 1.2em;
+    }
+
+    .home_dis > h3{
+        font-weight: 600;
+        margin-left: 1em;
+        font-size: 1em; 
+    }
+
+
+
+    /* 學習歷程 */
+    #B{
+        margin-top: 15em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    #sch_table{
+        float: top;
+    }
+
+    #sch_table > div{
+        font-size: 1em;
+        font-weight: 800;
+        width: 75%; 
+    }
+
+    .course_td{
+        display: block;
+        text-align: center;
+        font-size: 0.85em;
+    }
+
+
+    .scl_text{
+        font-size: 0.85em;
+        text-align: left;
+        text-align: justify;
+    }
+
+    .sch{
+        margin-top: 2em;
+        top: 50pt;
+    }
+
+
+    
+    /*休閒興趣*/
+    #C{
+        margin-top: 15em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    #int_table{
+        float: top;
+    }
+
+    #int_table > div{
+        font-size: 1em;
+        font-weight: 800;
+        width: 75%; 
+    }
+
+    .int_text{
+        font-size: 0.85em;
+        text-align: left;
+        text-align: justify;
+    }
+
+    .int{
+        margin-top: 2em;
+        top: 50pt;
+    }
+
+
+    .walk_td{
+        display: block;
+        text-align: left;
+        font-size: 0.85em;
+    }
+
+
+    /* 工作經驗 */
+    #D{
+        margin-top: 15em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+    }
+
+    #work_table{
+        float: top;
+    }
+
+    #work_table > div{
+        font-size: 1em;
+        font-weight: 800;
+        width: 75%; 
+    }
+
+    .work_text{
+        font-size: 0.85em;
+        text-align: left;
+        text-align: justify;
+    }
+
+    .work{
+        margin-top: 2em;
+        top: 50pt;
+    }
+
+    /* 作業作品 */
+    #E{
+        margin-top: 30em;
+        /* border: 5px solid; */
+        position: absolute;
+        right: 0pt;
+        left: 0pt;
+        font-size: 0.75em;
+    }
+}
+
+

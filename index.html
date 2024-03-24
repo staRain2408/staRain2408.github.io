@@ -1,0 +1,388 @@
+<!Doctype html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8">
+    <title>個人網站</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href=".\css\CSS.css">
+    <link rel="stylesheet" href=".\css\CSS_walk.css">
+    <link rel="stylesheet" href=".\css\RWD_1200-760.css">
+    <link rel="stylesheet" href=".\css\RWD_760-.css">
+    <link rel="stylesheet" href=".\css\CSS_walk.css">
+    <script src = ".\script\script.js"></script>
+    <!-- <link rel="icon" href=".\icon\Page_icon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Angkor&family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Angkor&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* *{
+        font-family: "Source Serif 4", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        color: rgb(124, 54, 26);
+        } */
+
+
+        *{
+            font-family: "Truculenta", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 500;
+            font-variation-settings:"wdth" 100;
+            color: rgb(124, 54, 26);
+        }
+
+        q{
+            font-family: "思源宋體";
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 400;
+            font-variation-settings:"wdth" 100;
+        }
+
+        .b{
+            color: rgb(188, 94, 57);
+            font-weight: 600;
+        }
+
+        hr{
+            width: 50%;
+            border-radius: 1em;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <table border="0pt" id = 'header-table' class="overlay">
+            <tr style="height: 2em;">
+                <td style = "width: 10%;" align = "center" rowspan="2">
+                    <img src=".\icon\Page_icon.png" width = "75em" height = "75em" style="padding-top: 0.5em;"></img>
+                </td>
+                <td rowspan="2"><div style="font-size: 1.5em;" align="left"><b index="hsiang" class="header-word" onmouseover="mOvername(this)" onmouseout="mOutname(this)">Hsiang-Yu's Homepage</b></div></td>
+                <td colspan="5" align="right" >
+                    <span class="link"><a href="https://www.instagram.com/dyestuff_2408/" target="_blank"><img class="header-link" src=".\icon\IG_.png"></img></a></span>
+                    <span class="link"><a href="https://www.facebook.com/share/fCS7Ld5nw2snnpQo/?mibextid=QwDbR1" target="_blank"><img class="header-link" src=".\icon\FB_.png"></img></a></span>
+                    <span class="link"><a href="https://www.plurk.com/yang898420" target="_blank"><img class="header-link" src=".\icon\PLURK_.png"></img></a></span>
+                    <span class="link"><a href="mailto:yang898420@gmail.com/" target="_blank"><img class="header-link" src=".\icon\GMAIL_.png"></img></a></span>
+                </td>
+                <td style = "width: 0.5%;"></td>
+            </tr>
+            <tr style="height: 1.5em;" >
+                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_A(this)">首&emsp;頁</td>
+                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_B(this)">學業經歷</td>
+                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_C(this)">休閒興趣</td>
+                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_D(this)">工作經驗</td>
+                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_E(this)">作品作業</td>
+                <td style = "width: 0.5%;"></td>
+            </tr>
+        </table>
+
+
+        <table border="0pt" id = 'header-table-RMD' class="overlay-RMD">
+            <tr style="height: 2em;">
+                <td style = "width: 10%;" align = "center">
+                    <img src=".\icon\Page_icon.png" width = "75em" height = "75em" style="padding-top: 0.5em;"></img>
+                    <!-- <div style="font-size: 1.5em;" align="left"><b index="hsiang" class="header-word" onmouseover="mOvername(this)" onmouseout="mOutname(this)">Hsiang-Yu's Homepage</b></div> -->
+                </td>
+            </tr>
+            <tr style="height: 1.5em;">
+                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_A(this)">首&emsp;頁</td>
+            </tr>
+            <tr style="height: 1.5em;">
+                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_B(this)">學業經歷</td>
+            </tr>
+            <tr style="height: 1.5em;">
+                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_C(this)">休閒興趣</td>
+            </tr>
+            <tr style="height: 1.5em;">
+                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_D(this)">工作經驗</td>
+            </tr>
+            <tr style="height: 1.5em;">
+                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_E(this)">作品作業</td>
+            </tr>
+        </table>
+
+    </header>
+
+    <!-- for RWD -->
+    <div id="RWD_media" style="z-index: 50;">
+        <div><a href="https://www.instagram.com/dyestuff_2408/" target="_blank"><img class="header-link-RWD" src=".\icon\IG_.png"></img></a></div>
+        <div><a href="https://www.facebook.com/share/fCS7Ld5nw2snnpQo/?mibextid=QwDbR1" target="_blank"><img class="header-link-RWD" src=".\icon\FB_.png"></img></a></div>
+        <div><a href="https://www.plurk.com/yang898420" target="_blank"><img class="header-link-RWD" src=".\icon\PLURK_.png"></img></a></div>
+        <div><a href="mailto:yang898420@gmail.com/" target="_blank"><img class="header-link-RWD" src=".\icon\GMAIL_.png"></img></a></div>
+    </div>
+
+
+    <div id = 'A' align="center">
+        <table class="Home_table" align="center" border="0pt" style="height: 37.5em;">
+            <tr style="width: 100%;" align="center">
+                <td class="home_dis" align="center">
+                    <img id="photo" src=".\img\個人照CLIP.png" ></img>
+                </td>
+                <td class="home_dis" align="left">
+                    <!-- <h3>晚安晚安</h3> -->
+                    <h1>晚安晚安&ensp;我是楊翔瑜!</h1>
+                    <div id="content_div">
+                        <q>以睡覺優先演算法實現最短路徑搜尋</q><br/>
+                        <q>高雄溫體牛肉火鍋是唯一信仰</q>
+                        <br/>
+                        <p id="content">臺灣師範大學地理學系碩士班小實習生，嘗試使用交通數據探討通勤議題，寶可夢葉伊布控。</p>
+                        
+                        <hr style="width: 100%;" align="center"/>
+                        <p class="content_2">
+                            專&emsp;長:&ensp;空間資訊系統(ArcGIS、QGIS)、程式設計(Python)。
+                            <br/><br/>
+                            曾學習:&ensp;機器學習與深度學習(Python)、統計軟體(SPSS、R)、資料庫(MySQL、PostgreSQL)、網頁前後端設計(JavaScript、PHP)、大地測量與遙測、環境教育、桌上遊系設計。
+                        </p>
+                    </div>
+                </td>
+                
+            </tr>
+
+            <!-- <tr style="height: 20em; width: 75%;">
+                <td>1</td>
+                <td>1</td>
+            </tr> -->
+        </table>
+        
+    </div>
+
+
+    <div hidden = true id = 'B' align="center">
+        <table class="Home_table" border="0pt">
+            <tr style="width: 100%;" align="center">
+                <td>
+                    <div id="sch_table">
+                        <div id="mas" class="sch">國立臺灣師範大學 地理學系碩士班
+                            <div id="mas_div">
+                                <hr/>
+                                <p class="scl_text">目前正在就讀中，碩士論文研究方向著重於使用新興交通數據與開放資料探討都會區通勤議題。</p>
+                            </div>
+                        </div>
+                        
+                        <div id="uni" class="sch">國立臺灣師範大學 地理學系學士班
+                            <div id="uni_div">
+                                <hr/>
+                                <p class="scl_text">
+                                    地理系就讀期間，課程選擇以空間資訊、地理統計、程式設計、測量與遙測學為主，自然議題與環境教育課程為輔。同時透過跨系、跨校選修程式設計課程，強化空間資料與資料庫存儲、程式自動化、機器學習與深度學習模型建構、空間與網頁視覺化的相關能力。
+                                    <table border="0pt" type="none" style="width: 100%;" id="course_ul">
+                                        <tr>
+                                            <td class="course_td">
+                                                <span class="b">空間資訊課程</span>
+                                                <p>地理資訊系統(ArcGIS Pro)</p>
+                                                <p>進階地理資訊系統(ArcPy)</p>
+                                            </td>
+                                            <td class="course_td">
+                                                <span class="b">計量統計課程</span>
+                                                <p>地理統計(ArcGIS Pro、SPSS)</p>
+                                                <p>空間統計(R)</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="course_td">
+                                                <span class="b">程式設計課程</span>
+                                                <p>程式設計、資料結構(Python)</p>
+                                                <p>WebGIS(Html、CSS、JavaScript、PHP、SQL)</p>
+                                                <p>深度學習與影像辨識(Tensorflow)</p>
+                                            </td>
+                                            <td class="course_td">
+                                                <span class="b">測量與航遙測課程</span>
+                                                <p>測量學、遙測學、航空攝影測量、測量實習</p>
+                                                <p>全球定位系統、衛星影像處理與應用 </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="course_td" colspan="2">
+                                                <span class="b">其他課程</span>
+                                                <p>環境教育概論、環境教育教材教法、環境倫理</p>
+                                                <p>自然災害、數值地形分析、地景調查與分析</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div id="sen" class="sch">臺中市私立衛道高級中學
+                            <div id="sen_div">
+                                <hr/>
+                                <p class="scl_text">高中時始接觸地理資訊系統，當時先是使用QGIS為主，因緣際會跑去臺師大參加第15屆地理奧林匹亞競賽，也常跟著地理老師以考察之名義到處出吃喝玩樂。後來學校申請了ArcGIS Pro序號，且同時高中端的多元學習選修課程被逐步測試與進行，更一步接觸地理資訊系統。</p>
+                            </div>
+                        </div>
+
+                        <div id="jun" class="sch">臺中市私立衛道高級中學附設國中部
+                            <div id="jun_div">
+                                <hr/>
+                                <p class="scl_text">位於臺中市北屯區的私立完全中學，包辦國中與高中教育，以嚴謹的教學風氣聞名。但也存在許多都市傳說，其中之一為學聖樓外測庭園水池<span class="b">衛道湖</span>的池水中沉著國中美術老師的腳踏車，在颱風天停班停課時湖中女神會在衛道湖周邊漫出水窪的泥濘地上騎車。許多同學畢業前選擇直升高中部，包含我。</p>
+                            </div>
+                        </div>
+                        
+                        <div id="ele" class="sch">臺中市賴厝民小學
+                            <div id="ele_div">
+                                <hr/>
+                                <p class="scl_text">位於臺中市北區的一所愜意小學。其中最印象深刻且引以為傲的事情是「傳統上小四小五生在運動會的時候固定要跳Lucy健康操，但輪到本屆上場時學校跟隨潮流，安排演出時下最夯的韓國男團SUPER JUNIOR的<span class="b">"SORRY, SORRY"</span>。此外，隔年表演另一首流行樂Wonder Girls的<span class="b">"NOBODY"</span>，令應屆年級走在時尚的尖端。」</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/><br/><br/><br/><br/>
+    </div>
+
+
+    <div hidden = true id = 'C' align="center">
+        <table class="Home_table" border="0pt">
+            
+            <tr style="width: 100%;" align="center">
+                <td>
+                    <div id="int_table">
+                        <div id="walk" class="int">長距離散步
+                            <div id="walk_div">
+                                <hr/>
+                                <p class="int_text">不以健走為目的，規劃長距離的散步行程。沿途觀察路上變化的風景。通常會花上一整天，然後隔天開始報怨幹嘛要這麼做。</p>
+                                <table border="0pt" type="none" style="width: 100%;" id="walk_ul">
+                                    <tr>
+                                        <td class="walk_td">
+                                            <span class="b">臺中捷運紀念章徒步</span>
+                                            <p id="G">綠線(已完成)<img src=".\img\walk_int\綠線.jpg" id="matro_G"></img>
+                                                <img src=".\img\walk_int\綠線_距離.jpg" id="dist_G"></img></p>
+                                            <br/>
+                                            <span class="b">高雄捷運紀念章徒步</span>
+                                            <p>橘線</p>
+                                            <p>紅線</p>
+                                        </td>
+                                        <td class="walk_td">
+                                            <span class="b">雙北捷運線紀念章徒步</span>
+                                            <p id="SG">松山新店線(已完成)
+                                                <img src=".\img\walk_int\松山新店線.jpg" id="matro_SG"></img>
+                                                <img src=".\img\walk_int\松山新店線_距離.jpg" id="dist_SG"></img></p>
+                                            <p id="R">淡水信義線(已完成)
+                                                <img src=".\img\walk_int\淡水信義線.jpg" id="matro_R"></img>
+                                                <img src=".\img\walk_int\淡水信義線_距離.jpg" id="dist_R"></img></p>
+                                            <p id="Y">環狀線南環段(已完成)
+                                                <img src=".\img\walk_int\環狀線南環.jpg" id="matro_Y"></img>
+                                                <img src=".\img\walk_int\環狀線南環_距離.jpg" id="dist_Y"></img></p>
+                                            <p>中和新蘆線</p>
+                                            <p id="Bn">板南線(已完成)
+                                                <img src=".\img\walk_int\板南線.jpg" id="matro_Bn"></img>
+                                                <img src=".\img\walk_int\板南線_距離.jpg" id="dist_Bn"></img></p>
+                                            <p>文湖線</p>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="walk_td">
+                                            <span class="b">臺鐵宜蘭縣通車百週年</span>
+                                            <p>蘇澳-羅東(已完成)</p>
+                                            <p>羅東-蘇澳</p>
+                                            <p>蘇澳-外澳</p>
+                                            <p>外澳-石城</p>
+                                            <p>石城-牧丹</p>
+                                            <p>牡丹-三貂嶺</p>
+                                            <p>三貂嶺-八堵</p>
+                                        </td>
+                                        <td class="walk_td">
+                                            <span class="b">臺北大縱走</span>
+                                            <p>捷運關渡站-二子坪遊客服務站</p>
+                                            <p>面天坪涼亭-小油坑服務站</p>
+                                            <p>小油坑服務站-風櫃口</p>
+                                            <p>風櫃口-中華科技大學</p>
+                                            <p>捷運劍潭站-碧山巖</p>
+                                            <p>中華科技大學-捷運麟光站</p>
+                                            <p>世界山莊-飛龍步道</p>
+                                            <p>捷運動物園站-捷運關渡站</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="sleep" class="int">睡覺
+                            <div id="sleep">
+                                <hr/>
+                                <p class="int_text">睡覺已經變成一種休閒活動了嗎?</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/><br/><br/><br/><br/>
+    </div>
+
+    
+
+    <div hidden = true id = 'D' align="center">
+        <table class="Home_table" border="0pt">
+            <tr style="width: 100%;" align="center">
+                <td>
+                    <div id="work_table">
+                        <div id="sinica" class="work">中研院暑期實習
+                            <div id="sinica">
+                                <hr/>
+                                <p class="work_text">完成交辦業務、<br/>議題探究期末發表(以GIS軟體進行舊航照正射糾正實作)。</p>
+                            </div>
+                        </div>
+                        <div id="club" class="work">師大動畫漫畫研究社社長
+                            <div id="club">
+                                <hr/>
+                                <p class="work_text">對外協商對內溝通、<br/>預算審查和財務使用、<br/>維持活動籌備與議會過程中的程序正義。</p>
+                            </div>
+                        </div>
+                        <div id="GIS" class="work">GIS工作坊助教
+                            <div id="GIS">
+                                <hr/>
+                                <p class="work_text">協助教學現場問題解決。</p>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/><br/><br/><br/><br/>
+    </div>
+
+
+
+    <div hidden = true id = 'E' align="center">
+        <table class="Home_table" border="0pt">
+            <tr style="width: 100%;" align="center">
+                <td>
+                    <div>
+                        <h1>期中報告與期末報告之後會放在這裡(用連結到其他網頁的方式)</h1>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br/><br/><br/><br/><br/>
+    </div>
+
+
+
+    <footer class="overlay_footer" align = middle>© 2024 Here-is-footer Co., Ltd. All Rights Uneserved</footer>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
