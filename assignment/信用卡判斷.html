@@ -1,0 +1,157 @@
+<!Doctype html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8">
+    <title>信用卡卡號判斷器</title>
+    <meta charset="utf-8">
+
+
+</head>
+<body>
+    <table align="center" style="width: 60%; border-color: rgb(255, 139, 104);" border="14pt">
+        <tr>
+            <td colspan="2" align="center">
+                <div style="font-size: 20pt; background-color: rgb(255, 220, 104); border-radius: 5pt;">信用卡卡號判斷機器</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 40%;">
+                <div align="center">
+                    <h2 style="background-color:rgb(255, 139, 104)">條件</h2>
+                    <div style="font-size: 14pt;" align="left">
+                        <br/>
+                        <b>條件:</b><br/>
+                        1.左邊數奇數的數字乘以2<br/>
+                        2.如果大於9，則可以減9或取兩位數之和<br/>
+                        3.右邊數偶數乘以1<br/>
+                        4.全部加總整除10則為真號<br/><br/>
+
+                        <b>防呆:</b><br/>
+                        1.長度為16<br/>
+                        2.起始為3、4、5<br/><br/>
+                        
+                        <b>判斷發卡單位:</b><br/>
+                        1.VISA 4開頭/16位數<br/>
+                        2.MasterCard 5開頭/16位數<br/>
+                        3.JCB 3開頭/16位數<br/>
+                        4.AmericanExpress 3開頭/15位數<br/><br/>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div align="center">
+                    <h2 style="background-color:rgb(255, 139, 104);" >測試區</h2>
+                    <p onmouseover="check_by_ele(this)" onmouseleave="check_by_ele_leave(this)">4929-1961-5308-2660</p>
+                    <p onmouseover="check_by_ele(this)" onmouseleave="check_by_ele_leave(this)">2124-8732-4842-1232</p>
+                    <p onmouseover="check_by_ele(this)" onmouseleave="check_by_ele_leave(this)">3337-1461-8541-4447</p>
+                    <p onmouseover="check_by_ele(this)" onmouseleave="check_by_ele_leave(this)">3337-6130-8183-6067-1</p>
+                    <p onmouseover="check_by_ele(this)" onmouseleave="check_by_ele_leave(this)">4815-6246-4346-5738</p>
+                    <p onmouseover="check_by_ele(this)" onmouseleave="check_by_ele_leave(this)">5505-1519-3717-526</p>
+                    <p onmouseover="check_by_ele(this)" onmouseleave="check_by_ele_leave(this)">5461-4940-7016-1563</p>  
+                </div>
+
+                
+                <div align="center">
+                    <h2 style="background-color:rgb(255, 139, 104)">輸入其他結果檢查區</h2>
+                    輸入其他卡號&nbsp
+                    <input id = 'input' value="">
+                    <button id = 'chect_buttom' onclick="chect_by_input()">檢查卡號</button>
+                    <br/>
+                    <div>
+                        <table style="display: none; height:150pt ;overflow-y: auto;" id = 'history'></table>
+                    </div>
+                </div>
+
+            </tr>
+        </td>
+    </table>
+    <footer align="center">Created by 61123019L Hsiang-Yu Yang</footer>
+    <script>
+        function check(CARD){
+            let count = 0;          // 總和計算
+            let check_card = [];    // 紀錄轉換後的卡號
+            let temp = CARD.split('-');
+            const number_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            for (var i=0; i<temp.length; i++){
+                check_card += temp[i];
+            }
+
+            //  檢查長度
+            if (check_card.length > 16 || check_card.length < 15){
+                return 'Card Number Length Error';
+            }
+
+            // 檢查字元
+            for (var i=0; i<check_card.length; i++){
+                if (number_list.includes(parseInt(check_card[i]))){
+                    continue;
+                }else{
+                    return 'Card Number Character Error';
+                }
+            }
+
+            // 檢查加總
+            for (var i=0; i<16; i++){
+                if (i%2 == 0){
+                    // 奇數位
+                    if (parseInt(check_card[i])*2 > 9)
+                        {count += (parseInt(check_card[i])*2 - 9);}
+                    else
+                        {count += (parseInt(check_card[i])*2);}
+                }
+                else{
+                    // 偶數位
+                    count += parseInt(check_card[i]);
+                }
+            }
+            
+            // 回傳判別結果
+            if (count % 10 == 0){
+                if (check_card.length == 16 && check_card[0] == 3){
+                    return 'JCB';
+                }else if (check_card.length == 16 && check_card[0] == 4){
+                    return 'VISA';
+                }else if (check_card.length == 16 && check_card[0] == 5){
+                    return 'MasterCard';
+                }else if (check_card.length == 15 && check_card[0] == 3){
+                    return 'AmericanExpress';
+                }
+            }
+            else{
+                return 'Card Number Error';
+            }
+        }
+
+        var temp_value;
+        function check_by_ele(obj){
+            temp_value = obj.innerText;
+            obj.innerHTML = obj.innerText + '&nbsp&nbsp&nbsp&nbsp&nbsp' + check(obj.innerText);
+        }
+
+        function check_by_ele_leave(obj){
+            obj.innerText = temp_value;
+            temp_value = '';
+        }
+
+
+
+        var temp = '<tr><th>歷史紀錄</th><th>判別結果</th></tr>';
+        var th_check = true;
+        function chect_by_input(){
+            let a = document.getElementById('input').value;
+            if (th_check){
+                document.getElementById('history').style.display = 'block';
+                document.getElementById('history').innerHTML = temp + `
+                <tr><td>${a}</td><td>${check(a)}</td></tr>`;
+                th_check = false;
+            }else{
+                document.getElementById('history').innerHTML = document.getElementById('history').innerHTML + `
+                <tr><td>${a}</td><td>${check(a)}</td></tr>`;
+            }
+
+        }
+
+
+
+    </script>
+</body>
