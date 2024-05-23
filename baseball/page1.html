@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <script>
+        // 获取 URL 参数的函数
+        function getParameterByName(name, url = window.location.href) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const value = urlParams.get('value');
+            
+            return value;
+        }
+
+        // 在页面加载时读取参数并调整内容
+        window.onload = function() {
+            const value = getParameterByName('value');
+            if (value) {
+                document.getElementById('valueDisplay').textContent = `接收到的值是: ${value}`;
+                // 根据接收到的值进行其他页面内容调整
+                console.log('Received value:', value);
+
+                // 示例：根据接收到的值来改变背景颜色
+                if (value === 'tianmu') {
+                    document.body.style.backgroundColor = 'red';
+                }else if(value === 'taipei'){
+                    document.body.style.backgroundColor = 'lightblue';
+                }else if(value === 'taichung'){
+                    document.body.style.backgroundColor = 'yellow';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>目标页面</h1>
+    <p id="valueDisplay">接收到的值是: </p>
+</body>
+</html>
