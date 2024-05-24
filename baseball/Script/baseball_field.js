@@ -179,8 +179,8 @@ window.onload = function() {
 
         }else if(value === 'Yunlin'){
             document.getElementById('Yunlin').style.display = 'block';
-            field = Object.keys(data['雲林']);
-            numbers = Object.values(data['雲林']);
+            field = Object.keys(data['斗六']);
+            numbers = Object.values(data['斗六']);
             draw_pie(field, numbers);
 
             document.getElementById('game_num').innerText = '總球賽場次: ' + numbers.reduce((a,b)=>a+b) / 2;
