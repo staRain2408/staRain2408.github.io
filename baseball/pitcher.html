@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投手筆記</title>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="text/javascript" src = ".\Script\pitcher_count.js"></script>
+    <script type="text/javascript" src = ".\Script\pitcher_percentage.js"></script>
+    <script type="text/javascript" src = ".\Script\pitcher_PR.js"></script>
+    <script type="text/javascript" src = ".\Script\pitcher_PR_filter.js"></script>
+
+    <script type="text/javascript" src = ".\Script\pitcher.js"></script>
+    <link rel="stylesheet" href=".\CSS\field.css">
+
+
+    
+</head>
+<body>
+    <div>
+        <h1 id="Tianmu" style="display: none; ">臺北市立天母棒球場</h1>
+        <h1 id="XinZhuang" style="display: none; ">新北市立新莊棒球場</h1>
+        <h1 id="Taoyuan" style="display: none; ">樂天桃園棒球場</h1>
+        <h1 id="Hsinchu" style="display: none; ">新竹市立棒球場</h1>
+        <h1 id="Intercontinental" style="display: none; ">臺中洲際棒球場</h1>
+        <h1 id="Taichung" style="display: none; ">教育部體育署臺中棒球場</h1>
+        <h1 id="Yunlin" style="display: none; ">雲林縣立斗六棒球場</h1>
+        <h1 id="KANO" style="display: none; ">嘉義市KANO棒球場</h1>
+        <h1 id="Tainan" style="display: none; ">臺南市立棒球場</h1>
+        <h1 id="Kaohsiung" style="display: none; ">高雄市立澄清湖棒球場</h1>
+        <h1 id="Pingtung" style="display: none; ">屏東縣立棒球場</h1>
+        <h1 id="Yilan" style="display: none; ">宜蘭縣立羅東運動公園棒球場</h1>
+        <h1 id="Hualien" style="display: none; ">花蓮縣立德興棒球場</h1>
+        <h1 id="Taitung" style="display: none; ">臺東縣棒球村第一棒球場</h1>
+
+        <h3 id="pitcher_num"></h3>
+
+        <h2>投球累計數據</h2>
+        <div style="justify-content: center; display: flex;">
+            <select id="dataSelect" style="margin: 20px; height: 10%; font-size: 14pt;">
+                <!-- '投球局數', '面對打席', '投球數', '好球數', '出賽數' , '優質先發'-->
+                <option>--請選擇--</option>
+                <option value="投球局數">投球局數</option>
+                <option value="面對打席">面對打席數</option>
+                <option value="投球數">投球數</option>
+                <option value="好球數">好球數</option>
+                <option value="出賽數">出賽數</option>
+                <option value="優質先發">優質先發</option>
+
+                <!-- '奪三振', '四壞', '（故四）', '死球', '安打', '全壘打',  -->
+                <option value="奪三振">奪三振數</option>
+                <option value="四壞">四壞球數</option>
+                <option value="（故四）">敬遠數</option>
+                <option value="死球">觸身球數</option>
+                <option value="安打">被安打數</option>
+                <option value="全壘打">被全壘打數</option>
+
+                <!-- '失分', '自責分', '暴投', '投手犯規', -->
+                <option value="失分">失分數</option>
+                <option value="自責分">自責分數</option>
+                <option value="暴投">暴投數</option>
+                <option value="投手犯規">投手犯規</option>
+
+
+                <!-- '完全比賽', '無安打', '完投完封', '完投', '三振機器', '燃燒宇宙', '守備在搞' -->
+                <option value="完全比賽">完全比賽</option>
+                <option value="無安打">無安打比賽</option>
+                <option value="完投完封">完投完封</option>
+                <option value="完投">完投</option>
+                <option value="三振機器">三振機器</option>
+                <option value="燃燒宇宙">燃燒宇宙</option>
+                <option value="守備在搞">守備在搞</option>
+
+            </select>
+        </div>
+        <div style="justify-content: center; display: flex;" id="p_c">
+            
+        </div>
+
+
+        <h2>投球表現排名</h2>
+        <div style="justify-content: center; display: flex;">
+            <select id="dataSelect_2" style="margin: 20px; height: 10%; font-size: 14pt;">
+                <!--'三振率', '三振保送比', '防禦率', '被安打率', '保送率', '每局被上壘率'-->
+                <option>--請選擇--</option>
+                <option value="防禦率">防禦率</option>
+                <option value="被安打率">被安打率</option>
+                <option value="保送率">保送率</option>
+                <option value="三振率">三振率</option>
+                <option value="三振保送比">三振保送比</option>
+                <option value="每局被上壘率">每局被上壘率</option>
+                
+            </select>
+        </div>
+        <div style="justify-content: center; display: flex;" id="p_p">
+            
+        </div>
+
+
+
+
+        <h2>球員成績查詢</h2>
+        <div style="justify-content: center; display: flex;">
+            <form id="inputForm">
+                <label for="userInput" style="color: aliceblue; font-size: 14pt;">輸入球員名稱:</label>
+                <input type="text" id="userInput" name="userInput" style="font-size: 14pt; height: 16pt;">
+                <label for="checkbox" style="font-size: 14pt;  color: rgb(255, 255, 255);">球員需符合規定投球局數</label>
+                <input type="checkbox" id="checkbox" name="checkbox" style="transform: scale(1.5);">
+                <button type="button" onclick="readInput_pit()" style="font-size: 13pt;">球員查詢</button>
+            </form>
+        </div>
+        <div style="justify-content: center; display: flex; margin: 1em;" id="p_PR">
+            
+        </div>
+
+        <div style="margin: 5em;"></div>
+    </div>
+
+    <style>
+        #pitcher_num_Chart{
+            max-height: 500px;
+            max-width: 800px;
+        }
+
+        #pitcher_percent_Chart{
+            max-height: 500px;
+            max-width: 800px;
+        }
+
+        #pitcher_PR_Chart{
+            max-height: 500px;
+            max-width: 800px;
+        }
+    </style>
+    
+
+
+    <script>
+        // 控制累計打擊成績
+        document.getElementById('dataSelect').addEventListener('change', function() {
+            document.getElementById('p_c').innerHTML= '<canvas id="pitcher_num_Chart"></canvas>';
+            
+            const value = getParameterByName('value');
+            const selectedValue = this.value;
+
+            //  '投球局數', '面對打席', '投球數', '好球數', '出賽數' , '優質先發'
+            if (selectedValue === '投球局數') {
+                draw_bar('投手完成的棒球局數', pitcher_count[place_pair[value]]['投球局數'][0], pitcher_count[place_pair[value]]['投球局數'][1]);
+            } else if (selectedValue === '面對打席') {
+                draw_bar('投手面對打者的次數', pitcher_count[place_pair[value]]['面對打席'][0], pitcher_count[place_pair[value]]['面對打席'][1]);
+            } else if (selectedValue === '投球數') {
+                draw_bar('投手面對打者打席將球投向捕手的次數', pitcher_count[place_pair[value]]['投球數'][0], pitcher_count[place_pair[value]]['投球數'][1]);
+            } else if (selectedValue === '好球數') {
+                draw_bar('投手投出的球被主審判定為好球、打者揮棒落空、或被擊出界外或安打的球數總和', pitcher_count[place_pair[value]]['好球數'][0], pitcher_count[place_pair[value]]['好球數'][1]);
+            } else if (selectedValue === '出賽數') {
+                draw_bar('投手登場投球的場次數', pitcher_count[place_pair[value]]['出賽數'][0], pitcher_count[place_pair[value]]['出賽數'][1]);
+            } else if (selectedValue === '優質先發') {
+                draw_bar('首位登場投手投滿六局且自責分失分在三分以下', pitcher_count[place_pair[value]]['優質先發'][0], pitcher_count[place_pair[value]]['優質先發'][1]);
+            }
+            //  '奪三振', '四壞', '（故四）', '死球', '安打', '全壘打'
+            else if (selectedValue === '奪三振') {
+                draw_bar('兩好球下投出第三顆好球打者未擊中球、未出棒或觸擊成界外球', pitcher_count[place_pair[value]]['奪三振'][0], pitcher_count[place_pair[value]]['奪三振'][1]);
+            }else if (selectedValue === '四壞') {
+                draw_bar('投手投出第四次壞球時打者未出棒', pitcher_count[place_pair[value]]['四壞'][0], pitcher_count[place_pair[value]]['四壞'][1]);
+            }else if (selectedValue === '（故四）') {
+                draw_bar('投捕手因戰術考量刻意讓打者保送上壘', pitcher_count[place_pair[value]]['（故四）'][0], pitcher_count[place_pair[value]]['（故四）'][1]);
+            }else if (selectedValue === '死球') {
+                draw_bar('投球擊中打者身體且打者未出棒',pitcher_count[place_pair[value]]['死球'][0],pitcher_count[place_pair[value]]['死球'][1]);
+            }else if (selectedValue === '安打') {
+                draw_bar('遭打者擊中球進場內且在守備未發生失誤的條件下攻占上壘', pitcher_count[place_pair[value]]['安打'][0], pitcher_count[place_pair[value]]['安打'][1]);
+            }else if (selectedValue === '全壘打') {
+                draw_bar('遭打者擊中出界內球且進入觀眾席', pitcher_count[place_pair[value]]['全壘打'][0], pitcher_count[place_pair[value]]['全壘打'][1]);
+            }  
+            //  '失分', '自責分', '暴投', '投手犯規'
+            else if (selectedValue === '失分') {
+                draw_bar('投球期間遭對手回本壘得分，以及下場時壘上跑者後續回本壘得分總數', pitcher_count[place_pair[value]]['失分'][0], pitcher_count[place_pair[value]]['失分'][1]);
+            } else if (selectedValue === '自責分') {
+                draw_bar('非失因為守備失誤造成的失分', pitcher_count[place_pair[value]]['自責分'][0], pitcher_count[place_pair[value]]['自責分'][1]);
+            } else if (selectedValue === '暴投') {
+                draw_bar('投出的球過於偏差導致捕手難以接捕而漏球', pitcher_count[place_pair[value]]['暴投'][0], pitcher_count[place_pair[value]]['暴投'][1]);
+            } else if (selectedValue === '投手犯規') {
+                draw_bar('投手在完成投球過程期間違反投球規則', pitcher_count[place_pair[value]]['投手犯規'][0], pitcher_count[place_pair[value]]['投手犯規'][1]);
+            }
+            //  '完全比賽', '無安打', '完投完封', '完投', '三振機器', '燃燒宇宙', '守備在搞'
+            else if (selectedValue === '完全比賽') {
+                draw_bar('單一投手投完整場比賽，且未被對手擊出任何安打與透過任意方式上壘', pitcher_count[place_pair[value]]['完全比賽'][0], pitcher_count[place_pair[value]]['完全比賽'][1]);
+            } else if (selectedValue === '無安打') {
+                draw_bar('單一投手投完整場比賽，且未被對手擊出任何安打球', pitcher_count[place_pair[value]]['無安打'][0], pitcher_count[place_pair[value]]['無安打'][1]);
+            } else if (selectedValue === '完投完封') {
+                draw_bar('單一投手投完整場比賽，且未被對手或得任何分數', pitcher_count[place_pair[value]]['完投完封'][0], pitcher_count[place_pair[value]]['完投完封'][1]);
+            } else if (selectedValue === '完投') {
+                draw_bar('單一投手投完整場比賽', pitcher_count[place_pair[value]]['完投'][0], pitcher_count[place_pair[value]]['完投'][1]);
+            } else if (selectedValue === '三振機器') {
+                draw_bar('單場比賽投出超過十次奪三振', pitcher_count[place_pair[value]]['三振機器'][0], pitcher_count[place_pair[value]]['三振機器'][1]);
+            } else if (selectedValue === '燃燒宇宙') {
+                draw_bar('單場比賽投出超過一百球', pitcher_count[place_pair[value]]['燃燒宇宙'][0], pitcher_count[place_pair[value]]['燃燒宇宙'][1]);
+            } else if (selectedValue === '守備在搞') {
+                draw_bar('非自則失分數大於自責失分數', pitcher_count[place_pair[value]]['守備在搞'][0], pitcher_count[place_pair[value]]['守備在搞'][1]);
+            }         
+        });
+
+
+
+
+        document.getElementById('dataSelect_2').addEventListener('change', function() {
+            document.getElementById('p_p').innerHTML= '<canvas id="pitcher_percent_Chart"></canvas>';
+            
+            const value = getParameterByName('value');
+            const selectedValue = this.value;
+
+            // '三振率', '三振保送比', '防禦率', '被安打率', '保送率', '每局被上壘率'
+            if (selectedValue === '三振率') {
+                draw_bar_percent('打者擊出安打的機率', pitcher_percentages[place_pair[value]]['三振率'][0], pitcher_percentages[place_pair[value]]['三振率'][1]);
+            } else if (selectedValue === '三振保送比') {
+                draw_bar_percent('反應投手的控球能力(若為無限大則以100代替)', pitcher_percentages[place_pair[value]]['三振保送比'][0], pitcher_percentages[place_pair[value]]['三振保送比'][1]);
+            } else if (selectedValue === '防禦率') {
+                draw_bar_percent('每9局的失分數，反映投手控制失分的能力', pitcher_percentages[place_pair[value]]['防禦率'][0], pitcher_percentages[place_pair[value]]['防禦率'][1]);
+            } else if (selectedValue === '被安打率') {
+                draw_bar_percent('每9局的被安打數，反映投手對決能力', pitcher_percentages[place_pair[value]]['被安打率'][0], pitcher_percentages[place_pair[value]]['被安打率'][1]);
+            } else if (selectedValue === '保送率') {
+                draw_bar_percent('反應投手的控球精準程度', pitcher_percentages[place_pair[value]]['保送率'][0], pitcher_percentages[place_pair[value]]['保送率'][1]);
+            } else if (selectedValue === '每局被上壘率') {
+                draw_bar_percent('投手每局讓打者上壘的數量，反應投手的壓制能力', pitcher_percentages[place_pair[value]]['每局被上壘率'][0], pitcher_percentages[place_pair[value]]['每局被上壘率'][1]);
+            }
+        });
+
+
+
+        
+        function readInput_pit() {
+            document.getElementById('p_PR').innerHTML= '<canvas id="pitcher_PR_Chart"></canvas>';
+            var input = document.getElementById('userInput').value;
+            let value = getParameterByName('value');
+            var checkbox = document.getElementById('checkbox').checked;
+            if(checkbox){   
+                draw_PR(input, pitcher_PR_filter[place_pair[value]][input]);} 
+            else{
+                draw_PR(input, pitcher_PR[place_pair[value]][input]);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
