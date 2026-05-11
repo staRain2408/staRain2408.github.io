@@ -1,388 +1,258 @@
-<!Doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
-    <meta content="text/html; charset=utf-8">
-    <title>Hsiang-Yu's Homepage</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href=".\css\CSS.css">
-    <link rel="stylesheet" href=".\css\CSS_walk.css">
-    <link rel="stylesheet" href=".\css\RWD_1200-760.css">
-    <link rel="stylesheet" href=".\css\RWD_760-.css">
-    <link rel="stylesheet" href=".\css\CSS_walk.css">
-    <script src = ".\script\script.js"></script>
-    <link rel="icon" href=".\icon\Page_icon.ico" type="image/x-icon">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Angkor&family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
-    -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Angkor&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
-
-    <style>
-
-        /* *{
-        font-family: "Source Serif 4", serif;
-        font-optical-sizing: auto;
-        font-weight: 500;
-        font-style: normal;
-        color: rgb(124, 54, 26);
-        } */
-
-
-        *{
-            font-family: "Truculenta", sans-serif;
-            font-optical-sizing: auto;
-            font-style: normal;
-            font-weight: 500;
-            font-variation-settings:"wdth" 100;
-            color: rgb(124, 54, 26);
-        }
-
-        q{
-            font-family: "思源宋體";
-            font-optical-sizing: auto;
-            font-style: normal;
-            font-weight: 400;
-            font-variation-settings:"wdth" 100;
-        }
-
-        .b{
-            color: rgb(188, 94, 57);
-            font-weight: 600;
-        }
-
-        hr{
-            width: 50%;
-            border-radius: 1em;
-        }
-    </style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>攝影人格測驗 PhotoTI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(135deg, #1e1b2e, #38415f);
+      color: #fff;
+    }
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.25);
+      margin-bottom: 24px;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .intro {
+      line-height: 1.8;
+      opacity: .92;
+    }
+    .question {
+      margin: 24px 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .question p {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+    label {
+      background: rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: 10px 6px;
+      text-align: center;
+      cursor: pointer;
+      font-size: .9rem;
+    }
+    input[type="radio"] {
+      display: block;
+      margin: 0 auto 6px;
+    }
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #1e1b2e;
+      background: #ffd56b;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #ffe08e;
+    }
+    #result {
+      display: none;
+    }
+    .type {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ffd56b;
+      margin: 10px 0;
+    }
+    .desc {
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    .bar {
+      height: 12px;
+      background: rgba(255,255,255,.16);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 8px 0 18px;
+    }
+    .bar span {
+      display: block;
+      height: 100%;
+      background: #ffd56b;
+    }
+    .note {
+      font-size: .9rem;
+      opacity: .78;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <table border="0pt" id = 'header-table' class="overlay">
-            <tr style="height: 2em;">
-                <td style = "width: 10%;" align = "center" rowspan="2">
-                    <img src=".\icon\Page_icon.png" width = "75em" height = "75em" style="padding-top: 0.5em;"></img>
-                </td>
-                <td rowspan="2"><div style="font-size: 1.5em;" align="left"><b index="hsiang" class="header-word" onmouseover="mOvername(this)" onmouseout="mOutname(this)">Hsiang-Yu's Homepage</b></div></td>
-                <td colspan="5" align="right" >
-                    <span class="link"><a href="https://www.instagram.com/dyestuff_2408/" target="_blank"><img class="header-link" src=".\icon\IG_.png"></img></a></span>
-                    <span class="link"><a href="https://www.facebook.com/share/fCS7Ld5nw2snnpQo/?mibextid=QwDbR1" target="_blank"><img class="header-link" src=".\icon\FB_.png"></img></a></span>
-                    <span class="link"><a href="https://www.plurk.com/yang898420" target="_blank"><img class="header-link" src=".\icon\PLURK_.png"></img></a></span>
-                    <span class="link"><a href="mailto:yang898420@gmail.com/" target="_blank"><img class="header-link" src=".\icon\GMAIL_.png"></img></a></span>
-                </td>
-                <td style = "width: 0.5%;"></td>
-            </tr>
-            <tr style="height: 1.5em;" >
-                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_A(this)">首&emsp;頁</td>
-                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_B(this)">學業經歷</td>
-                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_C(this)">休閒興趣</td>
-                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_D(this)">工作經驗</td>
-                <td style = "width: 10%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_E(this)">作品作業</td>
-                <td style = "width: 0.5%;"></td>
-            </tr>
-        </table>
+  <div class="wrap">
+    <section class="card">
+      <h1>📸 攝影人格測驗 PhotoTI</h1>
+      <p class="intro">
+        這不是嚴肅心理測驗，而是旅行前的小型拍照偏好調查。
+        請依照直覺作答，看看你在鏡頭前是主角、氛圍路人、紀錄片旅人，還是夜色裡的情緒幽靈。
+      </p>
+      <p class="note">1 = 非常不同意，5 = 非常同意</p>
+    </section>
 
+    <form id="quiz" class="card">
+      <h2>問卷題目</h2>
+      <div id="questions"></div>
+      <button type="submit">看我的攝影人格</button>
+    </form>
 
-        <table border="0pt" id = 'header-table-RMD' class="overlay-RMD">
-            <tr style="height: 2em;">
-                <td style = "width: 10%;" align = "center">
-                    <img src=".\icon\Page_icon.png" width = "75em" height = "75em" style="padding-top: 0.5em;"></img>
-                    <!-- <div style="font-size: 1.5em;" align="left"><b index="hsiang" class="header-word" onmouseover="mOvername(this)" onmouseout="mOutname(this)">Hsiang-Yu's Homepage</b></div> -->
-                </td>
-            </tr>
-            <tr style="height: 1.5em;">
-                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_A(this)">首&emsp;頁</td>
-            </tr>
-            <tr style="height: 1.5em;">
-                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_B(this)">學業經歷</td>
-            </tr>
-            <tr style="height: 1.5em;">
-                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_C(this)">休閒興趣</td>
-            </tr>
-            <tr style="height: 1.5em;">
-                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_D(this)">工作經驗</td>
-            </tr>
-            <tr style="height: 1.5em;">
-                <td style = "width: 100%;" align="center" class = 'index' onmouseover="mOver(this)" onmouseout="mOut(this)" onmousedown="mDown_E(this)">作品作業</td>
-            </tr>
-        </table>
+    <section id="result" class="card">
+      <h2>你的攝影人格是</h2>
+      <div class="type" id="typeCode"></div>
+      <h2 id="typeName"></h2>
+      <p class="desc" id="typeDesc"></p>
 
-    </header>
+      <h2>四軸傾向</h2>
+      <div id="axisBars"></div>
 
-    <!-- for RWD -->
-    <div id="RWD_media" style="z-index: 50;">
-        <div><a href="https://www.instagram.com/dyestuff_2408/" target="_blank"><img class="header-link-RWD" src=".\icon\IG_.png"></img></a></div>
-        <div><a href="https://www.facebook.com/share/fCS7Ld5nw2snnpQo/?mibextid=QwDbR1" target="_blank"><img class="header-link-RWD" src=".\icon\FB_.png"></img></a></div>
-        <div><a href="https://www.plurk.com/yang898420" target="_blank"><img class="header-link-RWD" src=".\icon\PLURK_.png"></img></a></div>
-        <div><a href="mailto:yang898420@gmail.com/" target="_blank"><img class="header-link-RWD" src=".\icon\GMAIL_.png"></img></a></div>
-    </div>
+      <button onclick="location.reload()">重新測一次</button>
+    </section>
+  </div>
 
+  <script>
+    const questions = [
+      // C / N
+      { text: "我喜歡拍照前先整理儀容、衣服或姿勢。", axis: "CN", side: "C" },
+      { text: "我喜歡自然抓拍勝過刻意擺拍。", axis: "CN", side: "N" },
+      { text: "如果照片不好看，我願意重拍一次。", axis: "CN", side: "C" },
+      { text: "我覺得旅行照片保留當下真實感比完美更重要。", axis: "CN", side: "N" },
 
-    <div id = 'A' align="center">
-        <table class="Home_table" align="center" border="0pt" style="height: 37.5em;">
-            <tr style="width: 100%;" align="center">
-                <td class="home_dis" align="center">
-                    <img id="photo" src=".\img\個人照CLIP.png" ></img>
-                </td>
-                <td class="home_dis" align="left">
-                    <!-- <h3>晚安晚安</h3> -->
-                    <h1>晚安晚安&ensp;我是楊翔瑜!</h1>
-                    <div id="content_div">
-                        <q>以睡覺優先演算法實現最短路徑搜尋</q><br/>
-                        <q>高雄溫體牛肉火鍋是唯一信仰</q>
-                        <br/>
-                        <p id="content">臺灣師範大學地理學系碩士班小實習生，嘗試使用交通數據探討通勤議題，寶可夢葉伊布控。</p>
-                        
-                        <hr style="width: 100%;" align="center"/>
-                        <p class="content_2">
-                            專&emsp;長:&ensp;空間資訊系統(ArcGIS、QGIS)、程式設計(Python)。
-                            <br/><br/>
-                            曾學習:&ensp;機器學習與深度學習(Python)、統計軟體(SPSS、R)、資料庫(MySQL、PostgreSQL)、網頁前後端設計(JavaScript、PHP)、大地測量與遙測、環境教育、桌上遊系設計。
-                        </p>
-                    </div>
-                </td>
-                
-            </tr>
+      // S / A
+      { text: "我喜歡自己是照片中的明確主角。", axis: "SA", side: "S" },
+      { text: "我喜歡人只是風景或氣氛中的一部分。", axis: "SA", side: "A" },
+      { text: "我喜歡特寫或半身人像。", axis: "SA", side: "S" },
+      { text: "我喜歡背影、側影、遠景這類比較有氛圍的照片。", axis: "SA", side: "A" },
 
-            <!-- <tr style="height: 20em; width: 75%;">
-                <td>1</td>
-                <td>1</td>
-            </tr> -->
-        </table>
-        
-    </div>
+      // P / F
+      { text: "一看到鏡頭，我可以很快進入拍照狀態。", axis: "PF", side: "P" },
+      { text: "被拍照時，我常常不知道手要放哪裡。", axis: "PF", side: "F" },
+      { text: "我喜歡擺姿勢、做表情或和鏡頭互動。", axis: "PF", side: "P" },
+      { text: "我比較適合在沒注意到鏡頭時被拍。", axis: "PF", side: "F" },
 
+      // R / M
+      { text: "我希望照片清楚記錄旅行中發生了什麼。", axis: "RM", side: "R" },
+      { text: "我更在意照片的光線、情緒和氛圍。", axis: "RM", side: "M" },
+      { text: "我喜歡完整的景點照、合照、食物照與行程紀錄。", axis: "RM", side: "R" },
+      { text: "我可以接受模糊、暗光、背影，只要情緒是對的。", axis: "RM", side: "M" }
+    ];
 
-    <div hidden = true id = 'B' align="center">
-        <table class="Home_table" border="0pt">
-            <tr style="width: 100%;" align="center">
-                <td>
-                    <div id="sch_table">
-                        <div id="mas" class="sch">國立臺灣師範大學 地理學系碩士班
-                            <div id="mas_div">
-                                <hr/>
-                                <p class="scl_text">目前正在就讀中，碩士論文研究方向著重於使用新興交通數據與開放資料探討都會區通勤議題。</p>
-                            </div>
-                        </div>
-                        
-                        <div id="uni" class="sch">國立臺灣師範大學 地理學系學士班
-                            <div id="uni_div">
-                                <hr/>
-                                <p class="scl_text">
-                                    地理系就讀期間，課程選擇以空間資訊、地理統計、程式設計、測量與遙測學為主，自然議題與環境教育課程為輔。同時透過跨系、跨校選修程式設計課程，強化空間資料與資料庫存儲、程式自動化、機器學習與深度學習模型建構、空間與網頁視覺化的相關能力。
-                                    <table border="0pt" type="none" style="width: 100%;" id="course_ul">
-                                        <tr>
-                                            <td class="course_td">
-                                                <span class="b">空間資訊課程</span>
-                                                <p>地理資訊系統(ArcGIS Pro)</p>
-                                                <p>進階地理資訊系統(ArcPy)</p>
-                                            </td>
-                                            <td class="course_td">
-                                                <span class="b">計量統計課程</span>
-                                                <p>地理統計(ArcGIS Pro、SPSS)</p>
-                                                <p>空間統計(R)</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="course_td">
-                                                <span class="b">程式設計課程</span>
-                                                <p>程式設計、資料結構(Python)</p>
-                                                <p>WebGIS(Html、CSS、JavaScript、PHP、SQL)</p>
-                                                <p>深度學習與影像辨識(Tensorflow)</p>
-                                            </td>
-                                            <td class="course_td">
-                                                <span class="b">測量與航遙測課程</span>
-                                                <p>測量學、遙測學、航空攝影測量、測量實習</p>
-                                                <p>全球定位系統、衛星影像處理與應用 </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="course_td" colspan="2">
-                                                <span class="b">其他課程</span>
-                                                <p>環境教育概論、環境教育教材教法、環境倫理</p>
-                                                <p>自然災害、數值地形分析、地景調查與分析</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div id="sen" class="sch">臺中市私立衛道高級中學
-                            <div id="sen_div">
-                                <hr/>
-                                <p class="scl_text">高中時始接觸地理資訊系統，當時先是使用QGIS為主，因緣際會跑去臺師大參加第15屆地理奧林匹亞競賽，也常跟著地理老師以考察之名義到處出吃喝玩樂。後來學校申請了ArcGIS Pro序號，且同時高中端的多元學習選修課程被逐步測試與進行，更一步接觸地理資訊系統。</p>
-                            </div>
-                        </div>
+    const typeNames = {
+      "CSPR": ["旅行明星型", "你很懂鏡頭，也願意經營畫面。適合拍清楚、漂亮、有主角感的旅行照。"],
+      "CSPM": ["雜誌封面型", "你喜歡精緻畫面與情緒張力，適合有光影、有姿勢、有氛圍的人像。"],
+      "CSFR": ["準備中主角型", "你想好看，也想被好好記錄，但面對鏡頭時可能需要一點暖機時間。"],
+      "CSFM": ["矜持電影主角型", "你有畫面感與情緒感，但不一定喜歡太直接的鏡頭壓迫。"],
+      "CAPR": ["構圖旅人型", "你重視畫面完整，也喜歡把自己放進場景中，適合乾淨、有秩序的旅遊構圖。"],
+      "CAPM": ["氛圍導演型", "你喜歡經營畫面氣質，適合逆光、窗邊、街景、夜色與帶故事感的照片。"],
+      "CAFR": ["安靜紀錄型", "你不一定想當主角，但希望旅行被好好保存。適合自然、穩定、有環境感的照片。"],
+      "CAFM": ["文藝幽靈型", "你偏好人融入氣氛裡，適合背影、側臉、夜景與有點朦朧的情緒照。"],
+      "NSPR": ["觀光開朗型", "你自然又願意入鏡，適合大量抓拍、合照、路邊小劇場與旅行日常。"],
+      "NSPM": ["即興演員型", "你不用太準備也能和鏡頭玩起來，適合動態、表情、光影和突發瞬間。"],
+      "NSFR": ["自然紀錄型", "你喜歡真實的旅行切片，不需要太多安排，越自然越像你。"],
+      "NSFM": ["靈魂抓拍型", "你最適合在不經意時被拍，照片重點不是完美，而是那一秒的神情。"],
+      "NAPR": ["風景同行者型", "你喜歡自然地出現在旅途中，重視地點、行程與當下發生的事。"],
+      "NAPM": ["旅行電影路人型", "你很適合小小一個人站在風景裡，讓照片像電影截圖。"],
+      "NAFR": ["低調旅伴型", "你不太需要成為焦點，但願意讓照片記錄自己真的來過。"],
+      "NAFM": ["夜色觀察者型", "你是氛圍與情緒的集合體。背影、側光、模糊街燈都很適合你。"]
+    };
 
-                        <div id="jun" class="sch">臺中市私立衛道高級中學附設國中部
-                            <div id="jun_div">
-                                <hr/>
-                                <p class="scl_text">位於臺中市北屯區的私立完全中學，包辦國中與高中教育，以嚴謹的教學風氣聞名。但也存在許多都市傳說，其中之一為學聖樓外測庭園水池<span class="b">衛道湖</span>的池水中沉著國中美術老師的腳踏車，在颱風天停班停課時湖中女神會在衛道湖周邊漫出水窪的泥濘地上騎車。許多同學畢業前選擇直升高中部，包含我。</p>
-                            </div>
-                        </div>
-                        
-                        <div id="ele" class="sch">臺中市賴厝民小學
-                            <div id="ele_div">
-                                <hr/>
-                                <p class="scl_text">位於臺中市北區的一所愜意小學。其中最印象深刻且引以為傲的事情是「傳統上小四小五生在運動會的時候固定要跳Lucy健康操，但輪到本屆上場時學校跟隨潮流，安排演出時下最夯的韓國男團SUPER JUNIOR的<span class="b">"SORRY, SORRY"</span>。此外，隔年表演另一首流行樂Wonder Girls的<span class="b">"NOBODY"</span>，令應屆年級走在時尚的尖端。」</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <br/><br/><br/><br/><br/>
-    </div>
+    const qBox = document.getElementById("questions");
 
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `
+        <p>${i + 1}. ${q.text}</p>
+        <div class="scale">
+          ${[1,2,3,4,5].map(n => `
+            <label>
+              <input type="radio" name="q${i}" value="${n}" required>
+              ${n}
+            </label>
+          `).join("")}
+        </div>
+      `;
+      qBox.appendChild(div);
+    });
 
-    <div hidden = true id = 'C' align="center">
-        <table class="Home_table" border="0pt">
-            
-            <tr style="width: 100%;" align="center">
-                <td>
-                    <div id="int_table">
-                        <div id="walk" class="int">長距離散步
-                            <div id="walk_div">
-                                <hr/>
-                                <p class="int_text">不以健走為目的，規劃長距離的散步行程。沿途觀察路上變化的風景。通常會花上一整天，然後隔天開始報怨幹嘛要這麼做。</p>
-                                <table border="0pt" type="none" style="width: 100%;" id="walk_ul">
-                                    <tr>
-                                        <td class="walk_td">
-                                            <span class="b">臺中捷運紀念章徒步</span>
-                                            <p id="G">綠線(已完成)<img src=".\img\walk_int\綠線.jpg" id="matro_G"></img>
-                                                <img src=".\img\walk_int\綠線_距離.jpg" id="dist_G"></img></p>
-                                            <br/>
-                                            <span class="b">高雄捷運紀念章徒步</span>
-                                            <p>橘線</p>
-                                            <p>紅線</p>
-                                        </td>
-                                        <td class="walk_td">
-                                            <span class="b">雙北捷運線紀念章徒步</span>
-                                            <p id="SG">松山新店線(已完成)
-                                                <img src=".\img\walk_int\松山新店線.jpg" id="matro_SG"></img>
-                                                <img src=".\img\walk_int\松山新店線_距離.jpg" id="dist_SG"></img></p>
-                                            <p id="R">淡水信義線(已完成)
-                                                <img src=".\img\walk_int\淡水信義線.jpg" id="matro_R"></img>
-                                                <img src=".\img\walk_int\淡水信義線_距離.jpg" id="dist_R"></img></p>
-                                            <p id="Y">環狀線南環段(已完成)
-                                                <img src=".\img\walk_int\環狀線南環.jpg" id="matro_Y"></img>
-                                                <img src=".\img\walk_int\環狀線南環_距離.jpg" id="dist_Y"></img></p>
-                                            <p>中和新蘆線</p>
-                                            <p id="Bn">板南線(已完成)
-                                                <img src=".\img\walk_int\板南線.jpg" id="matro_Bn"></img>
-                                                <img src=".\img\walk_int\板南線_距離.jpg" id="dist_Bn"></img></p>
-                                            <p>文湖線</p>
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td class="walk_td">
-                                            <span class="b">臺鐵宜蘭縣通車百週年</span>
-                                            <p>蘇澳-羅東(已完成)</p>
-                                            <p>羅東-蘇澳</p>
-                                            <p>蘇澳-外澳</p>
-                                            <p>外澳-石城</p>
-                                            <p>石城-牧丹</p>
-                                            <p>牡丹-三貂嶺</p>
-                                            <p>三貂嶺-八堵</p>
-                                        </td>
-                                        <td class="walk_td">
-                                            <span class="b">臺北大縱走</span>
-                                            <p>捷運關渡站-二子坪遊客服務站</p>
-                                            <p>面天坪涼亭-小油坑服務站</p>
-                                            <p>小油坑服務站-風櫃口</p>
-                                            <p>風櫃口-中華科技大學</p>
-                                            <p>捷運劍潭站-碧山巖</p>
-                                            <p>中華科技大學-捷運麟光站</p>
-                                            <p>世界山莊-飛龍步道</p>
-                                            <p>捷運動物園站-捷運關渡站</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div id="sleep" class="int">睡覺
-                            <div id="sleep">
-                                <hr/>
-                                <p class="int_text">睡覺已經變成一種休閒活動了嗎?</p>
-                            </div>
-                        </div>
-                    
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <br/><br/><br/><br/><br/>
-    </div>
+    document.getElementById("quiz").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-    
+      const scores = {
+        C: 0, N: 0,
+        S: 0, A: 0,
+        P: 0, F: 0,
+        R: 0, M: 0
+      };
 
-    <div hidden = true id = 'D' align="center">
-        <table class="Home_table" border="0pt">
-            <tr style="width: 100%;" align="center">
-                <td>
-                    <div id="work_table">
-                        <div id="sinica" class="work">中研院暑期實習
-                            <div id="sinica">
-                                <hr/>
-                                <p class="work_text">完成交辦業務、<br/>議題探究期末發表(以GIS軟體進行舊航照正射糾正實作)。</p>
-                            </div>
-                        </div>
-                        <div id="club" class="work">師大動畫漫畫研究社社長
-                            <div id="club">
-                                <hr/>
-                                <p class="work_text">對外協商對內溝通、<br/>預算審查和財務使用、<br/>維持活動籌備與議會過程中的程序正義。</p>
-                            </div>
-                        </div>
-                        <div id="GIS" class="work">GIS工作坊助教
-                            <div id="GIS">
-                                <hr/>
-                                <p class="work_text">協助教學現場問題解決。</p>
-                            </div>
-                        </div>
-                    
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <br/><br/><br/><br/><br/>
-    </div>
+      questions.forEach((q, i) => {
+        const value = Number(document.querySelector(`input[name="q${i}"]:checked`).value);
+        const opposite = {
+          C: "N", N: "C",
+          S: "A", A: "S",
+          P: "F", F: "P",
+          R: "M", M: "R"
+        }[q.side];
 
+        scores[q.side] += value;
+        scores[opposite] += 6 - value;
+      });
 
+      const code =
+        (scores.C >= scores.N ? "C" : "N") +
+        (scores.S >= scores.A ? "S" : "A") +
+        (scores.P >= scores.F ? "P" : "F") +
+        (scores.R >= scores.M ? "R" : "M");
 
-    <div hidden = true id = 'E' align="center">
-        <table class="Home_table" border="0pt">
-            <tr style="width: 100%;" align="center">
-                <td>
-                    <div>
-                        <h1><a href=".\baseball\index.html">棒球場紀錄網站</a></h1>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <br/><br/><br/><br/><br/>
-    </div>
+      const [name, desc] = typeNames[code];
 
+      document.getElementById("typeCode").textContent = code;
+      document.getElementById("typeName").textContent = name;
+      document.getElementById("typeDesc").textContent = desc;
 
+      const axes = [
+        ["C", "N", "構築 Curated", "自然 Natural"],
+        ["S", "A", "主角 Spotlight", "氛圍 Atmosphere"],
+        ["P", "F", "表演 Perform", "流動 Flow"],
+        ["R", "M", "紀錄 Record", "情緒 Mood"]
+      ];
 
-    <footer class="overlay_footer" align = middle>© 2024 Here-is-footer Co., Ltd. All Rights Uneserved</footer>
+      document.getElementById("axisBars").innerHTML = axes.map(([left, right, leftName, rightName]) => {
+        const total = scores[left] + scores[right];
+        const percent = Math.round(scores[left] / total * 100);
+        return `
+          <p>${leftName} ${percent}% ｜ ${rightName} ${100 - percent}%</p>
+          <div class="bar"><span style="width:${percent}%"></span></div>
+        `;
+      }).join("");
 
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("result").style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
