@@ -56,6 +56,26 @@
       box-shadow: 0 10px 22px rgba(0,0,0,.2);
     }
     button:hover { filter: brightness(1.05); }
+    .extra-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.2);
+      transition: .18s;
+      backdrop-filter: blur(10px);
+    }
+    .extra-btn:hover {
+      background: rgba(255,255,255,.22);
+      transform: translateY(-1px);
+    }
     #result { display: none; }
     .type-code {
       font-size: clamp(3rem, 12vw, 6rem); font-weight: 950; color: var(--accent);
@@ -105,6 +125,14 @@
       <h2>四軸傾向</h2>
       <div id="axisBars"></div>
       <button id="resetBtn" type="button">重新測一次</button>
+      <a 
+        href="https://forms.gle/GNyH255V3Qqimbd87" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="extra-btn"
+      >
+        📮 填寫攝影偏好表單
+      </a>
     </section>
   </main>
 
@@ -204,9 +232,6 @@
         const [left, right] = axisPairs[q.axis];
         const opposite = q.side === left ? right : left;
 
-        // 反向計分核心：
-        // 題目同意時偏向 q.side，所以 q.side 得 raw 分；
-        // 對立端得到 8 - raw 分。
         scores[q.side] += raw;
         scores[opposite] += 8 - raw;
       });
