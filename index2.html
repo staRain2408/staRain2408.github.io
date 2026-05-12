@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>攝影人格測驗 PhotoTI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(135deg, #1e1b2e, #38415f);
+      color: #fff;
+    }
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.25);
+      margin-bottom: 24px;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .intro {
+      line-height: 1.8;
+      opacity: .92;
+    }
+    .question {
+      margin: 24px 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .question p {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+    }
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+    label {
+      background: rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: 10px 6px;
+      text-align: center;
+      cursor: pointer;
+      font-size: .9rem;
+    }
+    input[type="radio"] {
+      display: block;
+      margin: 0 auto 6px;
+    }
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 16px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #1e1b2e;
+      background: #ffd56b;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #ffe08e;
+    }
+    #result {
+      display: none;
+    }
+    .type {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ffd56b;
+      margin: 10px 0;
+    }
+    .desc {
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+    .bar {
+      height: 12px;
+      background: rgba(255,255,255,.16);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 8px 0 18px;
+    }
+    .bar span {
+      display: block;
+      height: 100%;
+      background: #ffd56b;
+    }
+    .note {
+      font-size: .9rem;
+      opacity: .78;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="card">
+      <h1>📸 攝影人格測驗 PhotoTI</h1>
+      <p class="intro">
+        這不是嚴肅心理測驗，而是旅行前的小型拍照偏好調查。
+        請依照直覺作答，看看你在鏡頭前是主角、氛圍路人、紀錄片旅人，還是夜色裡的情緒幽靈。
+      </p>
+      <p class="note">1 = 非常不同意，5 = 非常同意</p>
+    </section>
+
+    <form id="quiz" class="card">
+      <h2>問卷題目</h2>
+      <div id="questions"></div>
+      <button type="submit">看我的攝影人格</button>
+    </form>
+
+    <section id="result" class="card">
+      <h2>你的攝影人格是</h2>
+      <div class="type" id="typeCode"></div>
+      <h2 id="typeName"></h2>
+      <p class="desc" id="typeDesc"></p>
+
+      <h2>四軸傾向</h2>
+      <div id="axisBars"></div>
+
+      <button onclick="location.reload()">重新測一次</button>
+    </section>
+  </div>
+
+  <script>
+    const questions = [
+      // C / N
+      { text: "我喜歡拍照前先整理儀容、衣服或姿勢。", axis: "CN", side: "C" },
+      { text: "我喜歡自然抓拍勝過刻意擺拍。", axis: "CN", side: "N" },
+      { text: "如果照片不好看，我願意重拍一次。", axis: "CN", side: "C" },
+      { text: "我覺得旅行照片保留當下真實感比完美更重要。", axis: "CN", side: "N" },
+
+      // S / A
+      { text: "我喜歡自己是照片中的明確主角。", axis: "SA", side: "S" },
+      { text: "我喜歡人只是風景或氣氛中的一部分。", axis: "SA", side: "A" },
+      { text: "我喜歡特寫或半身人像。", axis: "SA", side: "S" },
+      { text: "我喜歡背影、側影、遠景這類比較有氛圍的照片。", axis: "SA", side: "A" },
+
+      // P / F
+      { text: "一看到鏡頭，我可以很快進入拍照狀態。", axis: "PF", side: "P" },
+      { text: "被拍照時，我常常不知道手要放哪裡。", axis: "PF", side: "F" },
+      { text: "我喜歡擺姿勢、做表情或和鏡頭互動。", axis: "PF", side: "P" },
+      { text: "我比較適合在沒注意到鏡頭時被拍。", axis: "PF", side: "F" },
+
+      // R / M
+      { text: "我希望照片清楚記錄旅行中發生了什麼。", axis: "RM", side: "R" },
+      { text: "我更在意照片的光線、情緒和氛圍。", axis: "RM", side: "M" },
+      { text: "我喜歡完整的景點照、合照、食物照與行程紀錄。", axis: "RM", side: "R" },
+      { text: "我可以接受模糊、暗光、背影，只要情緒是對的。", axis: "RM", side: "M" }
+    ];
+
+    const typeNames = {
+      "CSPR": ["旅行明星型", "你很懂鏡頭，也願意經營畫面。適合拍清楚、漂亮、有主角感的旅行照。"],
+      "CSPM": ["雜誌封面型", "你喜歡精緻畫面與情緒張力，適合有光影、有姿勢、有氛圍的人像。"],
+      "CSFR": ["準備中主角型", "你想好看，也想被好好記錄，但面對鏡頭時可能需要一點暖機時間。"],
+      "CSFM": ["矜持電影主角型", "你有畫面感與情緒感，但不一定喜歡太直接的鏡頭壓迫。"],
+      "CAPR": ["構圖旅人型", "你重視畫面完整，也喜歡把自己放進場景中，適合乾淨、有秩序的旅遊構圖。"],
+      "CAPM": ["氛圍導演型", "你喜歡經營畫面氣質，適合逆光、窗邊、街景、夜色與帶故事感的照片。"],
+      "CAFR": ["安靜紀錄型", "你不一定想當主角，但希望旅行被好好保存。適合自然、穩定、有環境感的照片。"],
+      "CAFM": ["文藝幽靈型", "你偏好人融入氣氛裡，適合背影、側臉、夜景與有點朦朧的情緒照。"],
+      "NSPR": ["觀光開朗型", "你自然又願意入鏡，適合大量抓拍、合照、路邊小劇場與旅行日常。"],
+      "NSPM": ["即興演員型", "你不用太準備也能和鏡頭玩起來，適合動態、表情、光影和突發瞬間。"],
+      "NSFR": ["自然紀錄型", "你喜歡真實的旅行切片，不需要太多安排，越自然越像你。"],
+      "NSFM": ["靈魂抓拍型", "你最適合在不經意時被拍，照片重點不是完美，而是那一秒的神情。"],
+      "NAPR": ["風景同行者型", "你喜歡自然地出現在旅途中，重視地點、行程與當下發生的事。"],
+      "NAPM": ["旅行電影路人型", "你很適合小小一個人站在風景裡，讓照片像電影截圖。"],
+      "NAFR": ["低調旅伴型", "你不太需要成為焦點，但願意讓照片記錄自己真的來過。"],
+      "NAFM": ["夜色觀察者型", "你是氛圍與情緒的集合體。背影、側光、模糊街燈都很適合你。"]
+    };
+
+    const qBox = document.getElementById("questions");
+
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `
+        <p>${i + 1}. ${q.text}</p>
+        <div class="scale">
+          ${[1,2,3,4,5].map(n => `
+            <label>
+              <input type="radio" name="q${i}" value="${n}" required>
+              ${n}
+            </label>
+          `).join("")}
+        </div>
+      `;
+      qBox.appendChild(div);
+    });
+
+    document.getElementById("quiz").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const scores = {
+        C: 0, N: 0,
+        S: 0, A: 0,
+        P: 0, F: 0,
+        R: 0, M: 0
+      };
+
+      questions.forEach((q, i) => {
+        const value = Number(document.querySelector(`input[name="q${i}"]:checked`).value);
+        const opposite = {
+          C: "N", N: "C",
+          S: "A", A: "S",
+          P: "F", F: "P",
+          R: "M", M: "R"
+        }[q.side];
+
+        scores[q.side] += value;
+        scores[opposite] += 6 - value;
+      });
+
+      const code =
+        (scores.C >= scores.N ? "C" : "N") +
+        (scores.S >= scores.A ? "S" : "A") +
+        (scores.P >= scores.F ? "P" : "F") +
+        (scores.R >= scores.M ? "R" : "M");
+
+      const [name, desc] = typeNames[code];
+
+      document.getElementById("typeCode").textContent = code;
+      document.getElementById("typeName").textContent = name;
+      document.getElementById("typeDesc").textContent = desc;
+
+      const axes = [
+        ["C", "N", "構築 Curated", "自然 Natural"],
+        ["S", "A", "主角 Spotlight", "氛圍 Atmosphere"],
+        ["P", "F", "表演 Perform", "流動 Flow"],
+        ["R", "M", "紀錄 Record", "情緒 Mood"]
+      ];
+
+      document.getElementById("axisBars").innerHTML = axes.map(([left, right, leftName, rightName]) => {
+        const total = scores[left] + scores[right];
+        const percent = Math.round(scores[left] / total * 100);
+        return `
+          <p>${leftName} ${percent}% ｜ ${rightName} ${100 - percent}%</p>
+          <div class="bar"><span style="width:${percent}%"></span></div>
+        `;
+      }).join("");
+
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("result").style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
