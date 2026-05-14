@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PhotoTI 攝影人格測驗</title>
+  <title>攝影人格測驗</title>
   <style>
     :root {
       --bg1: #1c1a2b;
@@ -66,7 +66,7 @@
       font-size: 1.02rem;
       font-weight: 700;
       text-decoration: none;
-      color: white;
+      color: rgb(228, 216, 216);
       background: rgba(255,255,255,.14);
       border: 1px solid rgba(255,255,255,.2);
       transition: .18s;
@@ -105,16 +105,15 @@
 <body>
   <main class="wrap">
     <section class="card">
-      <h1>📸 PhotoTI 攝影人格測驗</h1>
+      <h1>📸 攝影人格測驗</h1>
       <p class="intro">這是一份旅行前的小測驗，用來觀察你在照片裡更接近哪一種存在方式。它不追求嚴肅心理診斷，而是幫攝影者理解：怎麼拍你，會更像你。</p>
-      <p class="note">作答方式：1 = 非常不同意，4 = 普通／看情況，7 = 非常同意。</p>
+      <p class="note">作答方式：1 = 非常不同意 4 = 沒想法 7 = 非常同意。</p>
     </section>
 
     <form id="quiz" class="card">
       <h2>問卷題目</h2>
       <div id="questions"></div>
       <button type="submit">看我的攝影人格</button>
-      <p class="small">計分說明：反向題會自動把分數換算成對立端分數，例如 7 會變成 1，6 會變成 2。</p>
     </form>
 
     <section id="result" class="card">
@@ -131,7 +130,7 @@
         rel="noopener noreferrer"
         class="extra-btn"
       >
-        📮 填寫攝影偏好表單
+        📮 填寫行程拍攝意願調查
       </a>
     </section>
   </main>
@@ -140,8 +139,8 @@
     const questions = [
       { text: "我比較容易在邊聊天邊拍時呈現自然感", axis: "PF", side: "F" },
       { text: "我會在意自己在照片裡看起來是否符合自我期待", axis: "CN", side: "C" },
-      { text: "有些照片即使畫面模糊，我還是會很喜歡", axis: "RM", side: "M" },
-      { text: "我不介意自己成為照片中的主要焦點", axis: "SA", side: "S" },
+       { text: "有些照片即使畫面模糊，我還是會很喜歡", axis: "RM", side: "M" },
+/*      { text: "我不介意自己成為照片中的主要焦點", axis: "SA", side: "S" },
       { text: "當有人拿起相機時，我通常知道自己該做什麼", axis: "PF", side: "P" },
       { text: "我不太喜歡完全沒準備就被拍下來", axis: "CN", side: "C" },
       { text: "有時候照片的不完美反而比較真實", axis: "CN", side: "N" },
@@ -165,9 +164,7 @@
       { text: "我不太習慣長時間被鏡頭持續對著", axis: "SA", side: "A" },
       { text: "我不排斥把拍照當成一種互動過程", axis: "PF", side: "P" },
       { text: "我喜歡幾年後看到照片時，還能明確想起當時情境", axis: "RM", side: "R" },
-      { text: "我比較喜歡自己像旅途中自然存在的一部分", axis: "SA", side: "A" },
-      { text: "即使沒有刻意擺拍，我也很容易進入拍照狀態", axis: "PF", side: "P" },
-      { text: "有些照片吸引我的原因，很難用「發生了什麼」來解釋", axis: "RM", side: "M" }
+      { text: "我比較喜歡自己像旅途中自然存在的一部分", axis: "SA", side: "A" }, */
     ];
 
     const axisPairs = { CN: ["C", "N"], SA: ["S", "A"], PF: ["P", "F"], RM: ["R", "M"] };
@@ -192,7 +189,7 @@
       CAPR: ["精準敘事型", "你在意畫面完成度，也喜歡自己成為場景的一部分。適合有空間感、旅行感的構圖。"],
       CAPM: ["場景共鳴型", "你像是在和場景共同演出。照片重點常常不是單純的你，而是你和整個空氣的關係。"],
       CAFR: ["安靜紀錄型", "你適合旅行隨拍。你不喜歡過多干涉，但又會默默注意自己的狀態，照片通常乾淨舒服。"],
-      CAFM: ["空氣感旅人型", "你容易拍出像電影截圖的照片。背影、側臉、夜色與移動感會讓你很有餘韻。"],
+      CAFM: ["空氣旅人型", "你容易拍出像電影截圖的照片。背影、側臉、夜色與移動感會讓你很有餘韻。"],
       NSPR: ["自然明星型", "你天生很好拍，不太需要準備，也不太怕鏡頭，旅行中常常一邊玩一邊成為主角。"],
       NSPM: ["感性發光型", "你很容易在情緒裡發光。不一定刻意擺拍，但一進入氣氛就非常有存在感。"],
       NSFR: ["隨行紀錄型", "你超適合旅行紀錄。不太刻意經營鏡頭，但又自然成為畫面焦點，照片很有一起旅行的真實感。"],
@@ -200,7 +197,7 @@
       NAPR: ["風景同行型", "你不一定想成為焦點，但很會和環境互動。照片常呈現你和某個地方之間的關係。"],
       NAPM: ["情緒漫遊型", "你會讓照片有朦朧的情緒。雨天、夜色、咖啡廳或街角都容易和你產生共鳴。"],
       NAFR: ["低調旅伴型", "你不需要成為焦點，但願意讓照片記錄自己真的來過。最適合邊走邊拍的旅行感照片。"],
-      NAFM: ["空氣感幽靈型", "你像存在於畫面裡的風。不主動回應鏡頭，也不刻意經營自己，但常常最有餘韻。"]
+      NAFM: ["空氣幽靈型", "你像存在於畫面裡的風。不主動回應鏡頭，也不刻意經營自己，但常常最有餘韻。"]
     };
 
     const qBox = document.getElementById("questions");
@@ -218,7 +215,7 @@
           `).join("")}
         </div>
         <div class="scale-caption">
-          <span>非常不同意</span><span>普通／看情況</span><span>非常同意</span>
+          <span>非常不同意</span><span>沒想法</span><span>非常同意</span>
         </div>
       `;
       qBox.appendChild(div);
@@ -250,6 +247,26 @@
 
     document.getElementById("quiz").addEventListener("submit", function(e) {
       e.preventDefault();
+
+      // 檢查未填題目
+      for (let i = 0; i < questions.length; i++) {
+        const checked = document.querySelector(`input[name="q${i}"]:checked`);
+
+        if (!checked) {
+          alert(`第 ${i + 1} 題尚未填寫喔！`);
+          
+          // 捲動到該題
+          const questionEl = document.querySelectorAll(".question")[i];
+          questionEl.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          return;
+        }
+      }
+
+      // ===== 原本結果計算 =====
       const scores = calculateScores();
       const code = chooseCode(scores);
       const result = typeNames[code];
@@ -259,26 +276,40 @@
       document.getElementById("typeDesc").textContent = result[1];
 
       const axes = [["CN","C","N"], ["SA","S","A"], ["PF","P","F"], ["RM","R","M"]];
+
       document.getElementById("axisBars").innerHTML = axes.map(([axis, left, right]) => {
         const total = scores[left] + scores[right];
         const leftPct = Math.round((scores[left] / total) * 100);
         const rightPct = 100 - leftPct;
         const winner = scores[left] >= scores[right] ? left : right;
+
         return `
           <div class="axis">
             <div class="axis-head">
               <span>${axisLabels[left]} ${leftPct}%</span>
               <span>${axisLabels[right]} ${rightPct}%</span>
             </div>
-            <div class="bar"><span style="width:${leftPct}%"></span></div>
-            <p class="axis-desc">你的此軸偏向：<span class="pill">${axisLabels[winner]}</span><br>${axisMeaning[axis]}</p>
+
+            <div class="bar">
+              <span style="width:${leftPct}%"></span>
+            </div>
+
+            <p class="axis-desc">
+              你的此軸偏向：
+              <span class="pill">${axisLabels[winner]}</span><br>
+              ${axisMeaning[axis]}
+            </p>
           </div>
         `;
       }).join("");
 
       document.getElementById("quiz").style.display = "none";
       document.getElementById("result").style.display = "block";
-      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
 
     document.getElementById("resetBtn").addEventListener("click", () => window.location.reload());
