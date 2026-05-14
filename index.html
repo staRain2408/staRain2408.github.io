@@ -14,7 +14,9 @@
       --text: #fff;
       --muted: rgba(255,255,255,0.78);
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
@@ -23,39 +25,109 @@
       color: var(--text);
       min-height: 100vh;
     }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 36px 18px 60px; }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 30px 18px 50px;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--line);
       backdrop-filter: blur(16px);
       border-radius: 24px;
-      padding: 28px;
+      padding: 22px;
       box-shadow: 0 18px 48px rgba(0,0,0,.28);
       margin-bottom: 22px;
     }
+
     h1, h2, h3 { margin-top: 0; }
-    h1 { font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.1; margin-bottom: 14px; }
-    .intro, .desc { line-height: 1.9; color: var(--muted); font-size: 1.04rem; }
-    .note, .small { color: var(--muted); font-size: .9rem; line-height: 1.7; }
-    .question { padding: 22px 0; border-bottom: 1px solid var(--line); }
-    .question:last-child { border-bottom: none; }
-    .q-title { font-size: 1.04rem; line-height: 1.7; margin: 0 0 14px; }
-    .scale { display: grid; grid-template-columns: repeat(7, minmax(34px, 1fr)); gap: 8px; }
-    label.option {
-      display: flex; flex-direction: column; gap: 6px; align-items: center; justify-content: center;
-      min-height: 56px; padding: 8px 4px; border-radius: 14px;
-      background: rgba(255,255,255,.11); cursor: pointer; transition: transform .15s, background .15s;
-      font-size: .85rem; user-select: none;
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
-    label.option:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+
+    .intro, .desc {
+      line-height: 1.7;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .note, .small {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .question {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .question:last-child { border-bottom: none; }
+
+    .q-title {
+      font-size: 1.04rem;
+      line-height: 1.7;
+      margin: 0 0 14px;
+    }
+
+    .scale {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(34px, 1fr));
+      gap: 8px;
+    }
+
+    label.option {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 8px 4px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.11);
+      cursor: pointer;
+      transition: transform .15s, background .15s;
+      font-size: .85rem;
+      user-select: none;
+    }
+
+    label.option:hover {
+      background: rgba(255,255,255,.2);
+      transform: translateY(-1px);
+    }
+
     label.option input { accent-color: var(--accent); }
-    .scale-caption { display: flex; justify-content: space-between; color: var(--muted); font-size: .82rem; margin-top: 8px; }
+
+    .scale-caption {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: .82rem;
+      margin-top: 8px;
+    }
+
     button {
-      width: 100%; border: 0; border-radius: 18px; padding: 16px 18px; font-size: 1.08rem;
-      font-weight: 800; color: #241f2f; background: var(--accent); cursor: pointer; margin-top: 24px;
+      width: 100%;
+      border: 0;
+      border-radius: 18px;
+      padding: 16px 18px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #241f2f;
+      background: var(--accent);
+      cursor: pointer;
+      margin-top: 24px;
       box-shadow: 0 10px 22px rgba(0,0,0,.2);
     }
+
     button:hover { filter: brightness(1.05); }
+
     .extra-btn {
       display: block;
       width: 100%;
@@ -72,33 +144,174 @@
       transition: .18s;
       backdrop-filter: blur(10px);
     }
+
     .extra-btn:hover {
       background: rgba(255,255,255,.22);
       transform: translateY(-1px);
     }
+
     #result { display: none; }
+
     .type-code {
-      font-size: clamp(3rem, 12vw, 6rem); font-weight: 950; color: var(--accent);
-      line-height: 1; margin: 12px 0; letter-spacing: .06em;
+      font-size: clamp(3rem, 10vw, 5.4rem);
+      font-weight: 950;
+      color: var(--accent);
+      line-height: 1;
+      margin: 4px 0;
+      letter-spacing: .06em;
     }
-    .type-name { font-size: 1.8rem; margin: 0 0 12px; }
+
+    .type-name {
+      font-size: 1.55rem;
+      margin: 0 0 6px;
+    }
+
+    .axis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
     .axis {
-      margin: 20px 0; padding: 18px; background: rgba(255,255,255,.09);
-      border-radius: 18px; border: 1px solid var(--line);
+      margin: 0;
+      padding: 12px;
+      background: rgba(255,255,255,.09);
+      border-radius: 18px;
+      border: 1px solid var(--line);
     }
-    .axis-head { display: flex; justify-content: space-between; gap: 12px; line-height: 1.5; margin-bottom: 8px; font-weight: 700; }
-    .bar { height: 14px; background: rgba(255,255,255,.14); border-radius: 999px; overflow: hidden; margin: 10px 0; }
-    .bar span { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
-    .axis-desc { color: var(--muted); line-height: 1.8; font-size: .95rem; margin: 8px 0 0; }
+
+    .axis-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: .88rem;
+    }
+
+    .bar {
+      height: 11px;
+      background: rgba(255,255,255,.14);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .axis-desc {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: .82rem;
+      margin: 6px 0 0;
+    }
+
     .pill {
-      display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.18);
-      color: var(--accent); font-weight: 700; font-size: .84rem; margin-left: 6px;
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .78rem;
+      margin-left: 4px;
     }
+
     @media (max-width: 560px) {
-      .card { padding: 22px 16px; border-radius: 20px; }
-      .scale { gap: 5px; }
-      label.option { min-height: 52px; font-size: .78rem; border-radius: 12px; }
-      .axis-head { flex-direction: column; }
+      .wrap {
+        padding: 18px 12px 32px;
+      }
+
+      .card {
+        padding: 16px 14px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+      }
+
+      .scale {
+        gap: 5px;
+      }
+
+      label.option {
+        min-height: 52px;
+        font-size: .78rem;
+        border-radius: 12px;
+      }
+
+      #result.card {
+        padding: 16px 14px;
+      }
+
+      #result h2 {
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+      }
+
+      .type-code {
+        font-size: 3.6rem;
+        margin: 2px 0;
+      }
+
+      .type-name {
+        font-size: 1.25rem;
+        margin-bottom: 4px;
+      }
+
+      .desc {
+        font-size: .86rem;
+        line-height: 1.45;
+        margin: 4px 0 10px;
+      }
+
+      .axis-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .axis {
+        padding: 9px;
+        border-radius: 14px;
+      }
+
+      .axis-head {
+        flex-direction: column;
+        gap: 2px;
+        font-size: .72rem;
+        line-height: 1.25;
+        margin-bottom: 6px;
+      }
+
+      .bar {
+        height: 8px;
+        margin: 6px 0;
+      }
+
+      .axis-desc {
+        font-size: .7rem;
+        line-height: 1.35;
+      }
+
+      .pill {
+        font-size: .68rem;
+        padding: 2px 6px;
+        margin-left: 2px;
+      }
+
+      button,
+      .extra-btn {
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: .92rem;
+        margin-top: 12px;
+      }
     }
   </style>
 </head>
@@ -122,7 +335,7 @@
       <h3 class="type-name" id="typeName"></h3>
       <p class="desc" id="typeDesc"></p>
       <h2>四軸傾向</h2>
-      <div id="axisBars"></div>
+      <div id="axisBars" class="axis-grid"></div>
       <button id="resetBtn" type="button">重新測一次</button>
       <a 
         href="https://forms.gle/GNyH255V3Qqimbd87" 
@@ -139,12 +352,12 @@
     const questions = [
       { text: "我比較容易在邊聊天邊拍時呈現自然感", axis: "PF", side: "F" },
       { text: "我會在意自己在照片裡看起來是否符合自我期待", axis: "CN", side: "C" },
-       { text: "有些照片即使畫面模糊，我還是會很喜歡", axis: "RM", side: "M" }, 
+       { text: "有些照片即使畫面模糊，我還是會很喜歡", axis: "RM", side: "M" },
       { text: "我不介意自己成為照片中的主要焦點", axis: "SA", side: "S" },
       { text: "當有人拿起相機時，我通常知道自己該做什麼", axis: "PF", side: "P" },
-/*      { text: "我不太喜歡完全沒準備就被拍下來", axis: "CN", side: "C" },
+      { text: "我不太喜歡完全沒準備就被拍下來", axis: "CN", side: "C" },
       { text: "有時候照片的不完美反而比較真實", axis: "CN", side: "N" },
-      { text: "我比較喜歡自己融入整個場景裡", axis: "SA", side: "A" },
+/*      { text: "我比較喜歡自己融入整個場景裡", axis: "SA", side: "A" },
       { text: "如果攝影者給一些動作指令，我通常能快速進入狀態", axis: "PF", side: "P" },
       { text: "旅行照片裡，地點與事件對我來說很重要", axis: "RM", side: "R" },
       { text: "太刻意擺拍時，我容易感到不自在", axis: "PF", side: "F" },
