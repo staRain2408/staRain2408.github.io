@@ -110,9 +110,12 @@
       border-radius:20px;
       padding:20px 16px;
       margin-bottom:16px;
+      min-height:210px;
+      display:flex;
+      align-items:center;
     }
     .q-kicker{color:var(--yellow);font-weight:900;font-size:14px;margin-bottom:12px}
-    .q-text{font-size:21px;line-height:1.45;font-weight:900;letter-spacing:.02em}
+    .q-text{font-size:21px;line-height:1.45;font-weight:900;letter-spacing:.02em;width:100%}
     .scale-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:0 2px 8px}
     .choices{
       display:grid;
@@ -182,6 +185,7 @@
       body{padding:8px}
       .panel{padding:18px 14px}
       .q-text{font-size:19px}
+      .question-card{min-height:230px}
       .code{font-size:48px}
       .choices{gap:5px}
       .axis-grid{gap:7px}
@@ -190,6 +194,8 @@
   </style>
 </head>
 <body>
+  <!-- 背景音樂：請把 your-music.mp3 改成你的本機端 mp3 路徑，例如 ./music/travel.mp3 -->
+  <audio id="bgm" src="./mp3/music.mp3" loop preload="auto"></audio>
   <main class="app">
     <section class="panel">
       <div id="start" class="start fade">
@@ -304,7 +310,16 @@
       void $(which).offsetWidth;
       $(which).classList.add("fade");
     }
-    function startQuiz(){ current=0; answers=[]; show("quiz"); renderQuestion(); }
+    function startBgm(){
+      const bgm = $("bgm");
+      if(bgm){
+        bgm.volume = 0.45;
+        bgm.play().catch(() => {
+          // 瀏覽器可能會擋自動播放；使用者按下開始測驗後通常即可播放。
+        });
+      }
+    }
+    function startQuiz(){ current=0; answers=[]; startBgm(); show("quiz"); renderQuestion(); }
     function renderQuestion(){
       const q = questions[current];
       $("counter").textContent = `${current+1}/${questions.length}`;
@@ -340,7 +355,11 @@
       }
     }
     function goBack(){
-      if(current>0){ current--; renderQuestion(); }
+      if(current > 0){
+        current--;
+        answers[current] = undefined; // 回到上一題時，清除該題原本的填答內容
+        renderQuestion();
+      }
     }
     function resetQuiz(){ show("start"); current=0; answers=[]; }
 
