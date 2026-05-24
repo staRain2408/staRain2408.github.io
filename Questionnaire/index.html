@@ -91,7 +91,12 @@
       text-decoration:none;
       min-height:48px;
     }
-    .primary{background:var(--yellow);color:#2b2540;box-shadow:0 8px 0 rgba(0,0,0,.12)}
+    .primary{
+      background:var(--yellow);
+      color:#2b2540;
+      box-shadow:0 8px 0 rgba(0,0,0,.12);
+      margin-top:16px;
+    }
     .primary:hover{transform:translateY(-1px);background:#ffe089}
     .secondary{background:rgba(255,255,255,.11);color:var(--text);border:1px solid var(--line);margin-top:14px}
     .formlink{background:#f0eef4;color:#403950;margin-top:12px}
@@ -109,7 +114,12 @@
     .q-kicker{color:var(--yellow);font-weight:900;font-size:14px;margin-bottom:12px}
     .q-text{font-size:21px;line-height:1.45;font-weight:900;letter-spacing:.02em}
     .scale-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:0 2px 8px}
-    .choices{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}
+    .choices{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:7px;
+      margin-bottom:14px;
+    }
     .choice{
       aspect-ratio:1/1;
       border-radius:14px;
@@ -122,6 +132,7 @@
     .choice:hover{background:var(--yellow);color:#2d2940;transform:translateY(-2px)}
     .choice.selected{background:var(--yellow);color:#2d2940}
     .back{
+      margin-top:0;
       background:transparent;
       color:var(--muted);
       border:1px solid var(--line);
@@ -280,7 +291,8 @@
       const q = questions[current];
       $("counter").textContent = `${current+1}/${questions.length}`;
       $("progressBar").style.width = `${((current)/questions.length)*100}%`;
-      $("qKicker").textContent = `${q.tag}傾向`;
+      $("qKicker").textContent = "";
+      $("qKicker").style.display = "none";
       $("qText").textContent = q.text;
       $("backBtn").disabled = current === 0;
       const choices = $("choices");
