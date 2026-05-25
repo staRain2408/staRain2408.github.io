@@ -294,7 +294,7 @@
 
     const axisInfo = {
       CN:{left:"Curated 構築", right:"Natural 自然", letters:["C","N"], desc:"你偏好參與與控制畫面，還是保留當下自然形成的樣子。"},
-      SE:{left:"Spotlight 主角", right:"Atmosphere 氛圍", letters:["S","E"], desc:"你希望自己是畫面焦點，或是成為旅途情境中的一部分。"},
+      SE:{left:"Spotlight 主角", right:"Environment 環境", letters:["S","E"], desc:"你希望自己是畫面焦點，或是成為旅途情境中的一部分。"},
       PF:{left:"Perform 表演", right:"Flow 流動", letters:["P","F"], desc:"你偏向主動回應鏡頭，或是在行動流動中被自然側寫。"},
       RM:{left:"Record 紀錄", right:"Mood 情緒", letters:["R","M"], desc:"你偏好紀錄事件與情境，還是保留更多的情緒與感受。"}
     };
@@ -346,8 +346,15 @@
     }
     function answer(value){
       answers[current] = value;
-      if(current < questions.length-1){
+
+      if(current < questions.length - 1){
         current++;
+
+        // 進入下一題時，不自動帶入舊答案
+        if(typeof answers[current] === "undefined"){
+          answers[current] = undefined;
+        }
+
         setTimeout(renderQuestion, 90);
       }else{
         $("progressBar").style.width = "100%";
@@ -357,7 +364,10 @@
     function goBack(){
       if(current > 0){
         current--;
-        answers[current] = undefined; // 回到上一題時，清除該題原本的填答內容
+
+        // 回上一題後，清除該題與後續所有答案，避免殘留舊計分
+        answers = answers.slice(0, current);
+
         renderQuestion();
       }
     }
@@ -409,7 +419,7 @@
       });
 
       const code = pick.CN + pick.SE + pick.PF + pick.RM;
-      const data = resultMap[code] || ["未知旅人型","你的拍照氣場太神祕，連小狐仙都暫時讀不到完整輪廓。"];
+      const data = resultMap[code] || ["未知旅人型","你的拍照氣場太神祕，暫時讀不到完整輪廓。"];
       $("resultCode").textContent = code;
       $("resultName").textContent = data[0];
       $("resultDesc").textContent = data[1];
