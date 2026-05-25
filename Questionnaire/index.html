@@ -132,7 +132,14 @@
       font-weight:900;
       font-size:16px;
     }
-    .choice:hover{background:var(--yellow);color:#2d2940;transform:translateY(-2px)}
+    /*.choice:hover{background:var(--yellow);color:#2d2940;transform:translateY(-2px)}*/
+    @media (hover: hover) {
+      .choice:hover{
+        background:var(--yellow);
+        color:#2d2940;
+        transform:translateY(-2px)
+      }
+    }
     .choice.selected{background:var(--yellow);color:#2d2940}
     .back{
       margin-top:0;
