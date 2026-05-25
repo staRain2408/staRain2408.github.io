@@ -393,8 +393,19 @@
 
       questions.forEach((q,i)=>{
         const value = answers[i] || 4;
-        const [leftLetter, rightLetter] = axisInfo[q.axis].letters;
-        const centered = value - 4; // 4 是中立；5-7 同意此題，1-3 不同意此題
+
+        // 非線性權重
+        const weightMap = {
+          1: -3.5,
+          2: -2.3,
+          3: -1,
+          4: 0,
+          5: 1,
+          6: 2.3,
+          7: 3.5
+        };
+
+        const centered = weightMap[value]; // 4 是中立；5-7 同意此題，1-3 不同意此題
 
         // 題目屬於左側時：同意加左側，不同意加右側
         // 題目屬於右側時：同意加右側，不同意加左側
@@ -406,7 +417,7 @@
       const perc = {};
       Object.keys(axisInfo).forEach(axis=>{
         const [a,b] = axisInfo[axis].letters;
-        const max = itemCounts[axis] * 3; // 每題最多偏移 3 分
+        const max = itemCounts[axis] * 3.5; // 每題最多偏移 3 分
         const leftPercent = max ? Math.round(((signed[axis] + max) / (max * 2)) * 100) : 50;
         const safeLeft = Math.max(0, Math.min(100, leftPercent));
         const safeRight = 100 - safeLeft;
@@ -419,7 +430,7 @@
       });
 
       const code = pick.CN + pick.SE + pick.PF + pick.RM;
-      const data = resultMap[code] || ["未知旅人型","你的拍照氣場太神祕，暫時讀不到完整輪廓。"];
+      const data = resultMap[code] || ["未知旅人型","你的拍照氣場太神祕，連小狐仙都暫時讀不到完整輪廓。"];
       $("resultCode").textContent = code;
       $("resultName").textContent = data[0];
       $("resultDesc").textContent = data[1];
