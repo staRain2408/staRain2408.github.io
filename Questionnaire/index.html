@@ -219,14 +219,22 @@
     .fade{animation:fade .22s ease}
     @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
     @media (max-width:380px){
-      body{padding:8px}
-      .panel{padding:18px 14px}
-      .q-text{font-size:19px}
-      .question-card{min-height:230px}
-      .code{font-size:48px}
-      .choices{gap:5px}
-      .axis-grid{gap:7px}
-      .axis-card{padding:10px 8px}
+        body{padding:8px}
+        .panel{padding:18px 14px}
+        .q-text{font-size:19px}
+        .question-card{min-height:230px}
+        .code{font-size:48px}
+        .choices{
+          display:flex;
+          gap:3px;
+        }
+        .choice{
+          flex:1;
+          min-width:0;
+          font-size:14px;
+        }
+        .axis-grid{gap:7px}
+        .axis-card{padding:10px 8px}
     }
   </style>
 </head>
