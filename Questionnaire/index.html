@@ -293,12 +293,12 @@
 </head>
 <body>
   <!-- 背景音樂：請把 your-music.mp3 改成你的本機端 mp3 路徑，例如 ./music/travel.mp3 -->
-  <audio id="bgm" src="./mp3/フリー音楽素材--想いを彼方へ.mp3" loop preload="auto"></audio>
+  <!--<audio id="bgm" src="./mp3/フリー音楽素材--想いを彼方へ.mp3" loop preload="auto"></audio>-->
   <main class="app">
     <section class="panel">
       <div id="start" class="start fade">
         <h1>📸 攝影人格測驗</h1>
-        <p class="lead">這是個旅行前的拍照偏好心理測驗，請依照直覺回答。不需要思考太多:)</p>
+        <p class="lead">這是個旅行前的拍照偏好心理測驗，請依照直覺回答。不需要思考太多:)<br>假設你在和朋友在期待已久的旅途之中，當你的身影被相機快門捕捉下時，怎樣子的照片最能最呈現出符合你的偏好或理想中的樣子？</p>
         <div class="note">1 = 非常不同意 7 = 非常同意</div>
         <button class="primary" onclick="startQuiz()">開始測驗</button>
       </div>
@@ -387,7 +387,7 @@
 
     const axisInfo = {
       CN:{left:"Curated 構築", right:"Natural 自然", letters:["C","N"], desc:"你偏好參與與控制畫面，還是保留當下自然形成的樣子。"},
-      SE:{left:"Spotlight 主角", right:"Environment 環境", letters:["S","E"], desc:"你希望自己是畫面焦點，或是成為旅途情境中的一部分。"},
+      SE:{left:"Spotlight 主角", right:"Environment 環境", letters:["S","E"], desc:"你希望自己是畫面焦點，或是成為旅途景致中的一部分。"},
       PF:{left:"Perform 表演", right:"Flow 流動", letters:["P","F"], desc:"你偏向主動回應鏡頭，或是在行動流動中被自然側寫。"},
       RM:{left:"Record 紀錄", right:"Mood 情緒", letters:["R","M"], desc:"你偏好紀錄事件與情境，還是保留更多的情緒與感受。"}
     };
