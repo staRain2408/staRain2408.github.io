@@ -21,7 +21,7 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      min-height:100vh;
+      min-height:100dvh;
       font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
       background:
         radial-gradient(circle at 10% 0%, rgba(255,215,107,.18), transparent 28%),
@@ -31,10 +31,12 @@
       display:flex;
       justify-content:center;
       padding:18px;
+      box-sizing:border-box;
     }
     .app{
       width:min(430px,100%);
-      min-height:calc(100vh - 36px);
+      /*min-height:calc(100vh - 36px);*/
+      min-height:100%;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -258,7 +260,7 @@
     <section class="panel">
       <div id="start" class="start fade">
         <h1>📸 攝影人格測驗</h1>
-        <p class="lead">這是個旅行前的拍照偏好心理測驗，請依照直覺作答。不需要太嚴肅:)</p>
+        <p class="lead">這是個旅行前的拍照偏好心理測驗，請依照直覺回答。不需要思考太多:)</p>
         <div class="note">1 = 非常不同意 7 = 非常同意</div>
         <button class="primary" onclick="startQuiz()">開始測驗</button>
       </div>
