@@ -149,9 +149,10 @@
     .scale-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:0 2px 8px}
     .choices{
       display:grid;
-      grid-template-columns:repeat(7,1fr);
+      grid-template-columns:repeat(7,minmax(0,1fr));
       gap:7px;
       margin-bottom:14px;
+      width:100%;
     }
     .choice{
       aspect-ratio:1/1;
@@ -161,6 +162,8 @@
       border:1px solid var(--line);
       font-weight:900;
       font-size:16px;
+      min-width:0;
+      width:100%;
     }
     /*.choice:hover{background:var(--yellow);color:#2d2940;transform:translateY(-2px)}*/
     @media (hover: hover) {
@@ -218,25 +221,35 @@
     .hidden{display:none}
     .fade{animation:fade .22s ease}
     @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-    @media (max-width:380px){
-        body{padding:8px}
-        .panel{padding:18px 14px}
-        .q-text{font-size:19px}
-        .question-card{min-height:230px}
-        .code{font-size:48px}
-        .choices{
-          display:flex;
-          gap:3px;
-        }
-        .choice{
-          flex:1;
-          min-width:0;
-          font-size:14px;
-        }
-        .axis-grid{gap:7px}
-        .axis-card{padding:10px 8px}
+    @media (max-width:480px){
+      body{padding:8px}
+      .panel{padding:18px 14px}
+      .q-text{font-size:19px}
+      .question-card{min-height:230px}
+      .code{font-size:48px}
+
+      .question-block{
+        padding:14px 10px;
+      }
+
+      .choices{
+        display:grid;
+        grid-template-columns:repeat(7,minmax(0,1fr));
+        gap:4px;
+        width:100%;
+      }
+
+      .choice{
+        min-width:0;
+        width:100%;
+        font-size:14px;
+        border-radius:12px;
+      }
+
+      .axis-grid{gap:7px}
+      .axis-card{padding:10px 8px}
     }
-  </style>
+</style>
 </head>
 <body>
   <!-- 背景音樂：請把 your-music.mp3 改成你的本機端 mp3 路徑，例如 ./music/travel.mp3 -->
