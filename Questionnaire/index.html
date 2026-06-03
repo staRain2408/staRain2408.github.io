@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>攝影人格測驗</title>
+  <style>
+    :root{
+      --bg:#2d2940;
+      --card:#514a66;
+      --card2:#625a77;
+      --text:#fff7f0;
+      --muted:#d8d1df;
+      --yellow:#ffd76b;
+      --yellow2:#f7c94f;
+      --line:rgba(255,255,255,.17);
+      --soft:rgba(255,255,255,.10);
+      --shadow:0 24px 70px rgba(0,0,0,.32);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,215,107,.18), transparent 28%),
+        radial-gradient(circle at 95% 10%, rgba(176,145,255,.16), transparent 30%),
+        linear-gradient(180deg,#211f31,#38304c);
+      color:var(--text);
+      display:flex;
+      justify-content:center;
+      padding:18px;
+    }
+    .app{
+      width:min(430px,100%);
+      min-height:calc(100vh - 36px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .panel{
+      width:100%;
+      background:rgba(81,74,102,.92);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px 18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .panel:before{
+      content:"";
+      position:absolute;
+      inset:-40px -40px auto auto;
+      width:160px;height:160px;
+      background:radial-gradient(circle,rgba(255,215,107,.23),transparent 65%);
+      pointer-events:none;
+    }
+    h1,h2,p{margin:0}
+    .start h1{font-size:30px;line-height:1.15;margin-bottom:14px}
+    .lead{font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:18px}
+    .note{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:#2d2940;
+      background:var(--yellow);
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:800;
+      font-size:14px;
+      margin-bottom:22px;
+    }
+    button,.choice{
+      border:0;
+      cursor:pointer;
+      font-family:inherit;
+      transition:.18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .primary,.secondary,.formlink{
+      width:100%;
+      border-radius:16px;
+      padding:15px 16px;
+      font-weight:900;
+      font-size:15px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      min-height:48px;
+    }
+    .primary{
+      background:var(--yellow);
+      color:#2b2540;
+      box-shadow:0 8px 0 rgba(0,0,0,.12);
+      margin-top:16px;
+    }
+    .primary:hover{transform:translateY(-1px);background:#ffe089}
+    .secondary{background:rgba(255,255,255,.11);color:var(--text);border:1px solid var(--line);margin-top:14px}
+    .formlink{background:#f0eef4;color:#403950;margin-top:12px}
+    .progress-top{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+    .bar{height:10px;flex:1;background:rgba(255,255,255,.18);border-radius:999px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0%;background:var(--yellow);border-radius:999px;transition:.25s ease}
+    .count{font-weight:900;color:var(--yellow);font-size:14px;white-space:nowrap}
+    .question-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px 16px;
+      margin-bottom:16px;
+      min-height:210px;
+      display:flex;
+      align-items:center;
+    }
+    .q-kicker{color:var(--yellow);font-weight:900;font-size:14px;margin-bottom:12px}
+    .q-text{font-size:21px;line-height:1.45;font-weight:900;letter-spacing:.02em;width:100%}
+    .question-list{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      margin-bottom:16px;
+    }
+    .question-block{
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px 12px;
+    }
+    .question-text{
+      font-size:15px;
+      line-height:1.5;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+    .question-number{
+      color:var(--yellow);
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:5px;
+    }
+    .question-block .scale-labels{
+      margin-bottom:7px;
+    }
+    .question-block .choices{
+      margin-bottom:0;
+    }
+    .scale-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:0 2px 8px}
+    .choices{
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:7px;
+      margin-bottom:14px;
+    }
+    .choice{
+      aspect-ratio:1/1;
+      border-radius:14px;
+      background:rgba(255,255,255,.12);
+      color:var(--text);
+      border:1px solid var(--line);
+      font-weight:900;
+      font-size:16px;
+    }
+    /*.choice:hover{background:var(--yellow);color:#2d2940;transform:translateY(-2px)}*/
+    @media (hover: hover) {
+      .choice:hover{
+        background:var(--yellow);
+        color:#2d2940;
+        transform:translateY(-2px)
+      }
+    }
+    .choice.selected{background:var(--yellow);color:#2d2940}
+    .back{
+      margin-top:0;
+      background:transparent;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 14px;
+      width:100%;
+      font-weight:800;
+    }
+    .nav-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:0;
+    }
+    .result-btn{
+      background:var(--yellow);
+      color:#2b2540;
+      border:0;
+      border-radius:14px;
+      padding:12px 14px;
+      width:100%;
+      font-weight:900;
+    }
+    .back:disabled{opacity:.35;cursor:not-allowed}
+    .result-title{font-size:17px;font-weight:900;margin-bottom:4px}
+    .code{font-size:56px;line-height:.95;color:var(--yellow);font-weight:1000;letter-spacing:.03em;margin:8px 0 6px}
+    .type-name{font-size:23px;font-weight:1000;margin-bottom:6px}
+    .desc{color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:16px}
+    .axis-title{font-size:18px;font-weight:1000;margin:8px 0 10px}
+    .axis-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .axis-card{
+      background:rgba(255,255,255,.10);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 10px;
+      min-height:134px;
+    }
+    .axis-card h3{font-size:12px;line-height:1.25;margin:0 0 7px;font-weight:1000}
+    .mini-bar{height:7px;background:rgba(255,255,255,.20);border-radius:999px;overflow:hidden;margin-bottom:9px}
+    .mini-bar span{display:block;height:100%;background:var(--yellow);border-radius:999px}
+    .lean{font-size:12px;color:var(--muted);line-height:1.45}
+    .lean b{color:var(--yellow)}
+    .hidden{display:none}
+    .fade{animation:fade .22s ease}
+    @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @media (max-width:380px){
+      body{padding:8px}
+      .panel{padding:18px 14px}
+      .q-text{font-size:19px}
+      .question-card{min-height:230px}
+      .code{font-size:48px}
+      .choices{gap:5px}
+      .axis-grid{gap:7px}
+      .axis-card{padding:10px 8px}
+    }
+  </style>
+</head>
+<body>
+  <!-- 背景音樂：請把 your-music.mp3 改成你的本機端 mp3 路徑，例如 ./music/travel.mp3 -->
+  <audio id="bgm" src="./mp3/フリー音楽素材--想いを彼方へ.mp3" loop preload="auto"></audio>
+  <main class="app">
+    <section class="panel">
+      <div id="start" class="start fade">
+        <h1>📸 攝影人格測驗</h1>
+        <p class="lead">這是個旅行前的拍照偏好心理測驗，請依照直覺作答。不需要太嚴肅:)</p>
+        <div class="note">1 = 非常不同意 7 = 非常同意</div>
+        <button class="primary" onclick="startQuiz()">開始測驗</button>
+      </div>
+
+      <div id="quiz" class="hidden fade">
+        <div class="progress-top">
+          <div class="bar"><span id="progressBar"></span></div>
+          <div id="counter" class="count">1/27</div>
+        </div>
+        <div id="questionList" class="question-list"></div>
+        <div id="navRow" class="nav-row">
+          <button id="backBtn" class="back" onclick="goBack()">回上一頁</button>
+          <button id="nextBtn" class="result-btn" onclick="goNext()">下一頁</button>
+        </div>
+      </div>
+
+      <div id="result" class="hidden fade">
+        <div class="result-title">你的攝影人格是</div>
+        <div id="resultCode" class="code"></div>
+        <div id="resultName" class="type-name"></div>
+        <p id="resultDesc" class="desc"></p>
+        <div class="axis-title">四軸傾向</div>
+        <div id="axisGrid" class="axis-grid"></div>
+        <button class="primary" onclick="resetQuiz()">重測一次</button>
+        <a class="formlink" href="https://forms.gle/GNyH255V3Qqimbd87" target="_blank" rel="noopener">💌 填寫日本拍攝意願調查</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const questions = [
+      {axis:"CN", side:"C", tag:"構築", text:"我會在意自己在照片裡的樣子看起來是否符合自我期待"},
+      {axis:"SE", side:"E", tag:"氛圍", text:"在照片之中，我比較喜歡自己屬於場景中的一部分"},
+      {axis:"PF", side:"P", tag:"表演", text:"被拍攝時，我喜歡在場景中嘗試不同的表情、動作或狀態"},
+      {axis:"RM", side:"M", tag:"情緒", text:"有些照片吸引我的原因，很難用「它發生了什麼具體的事件」來解釋"},
+
+      {axis:"CN", side:"N", tag:"自然", text:"我能接受照片忠實保留當下的狀態，即使可能不完全理想"},
+      {axis:"SE", side:"E", tag:"氛圍", text:"我喜歡人物與場景一起構成照片的感覺"},
+      {axis:"PF", side:"F", tag:"流動", text:"很多時候，我覺得自己最自然的照片都是在沒留意到鏡頭時出現的"},
+      {axis:"RM", side:"R", tag:"紀錄", text:"有時候即使沒有明確事件，我也會因某張照片記住當下的感覺"},
+
+      {axis:"CN", side:"C", tag:"構築", text:"拍照時，我會在意自己當下的表情、姿勢或儀容是否合適"},
+      {axis:"SE", side:"E", tag:"氛圍", text:"我特別喜歡人物待在某個地方的樣子，例如街道、房間、窗邊或風景之中"},
+      {axis:"PF", side:"P", tag:"表演", text:"當我留意到被拍攝時，我會主動回應鏡頭，例如改變表情、眼神或動作"},
+      {axis:"RM", side:"R", tag:"紀錄", text:"在照片裡，紀錄下地點與事件對我來說很重要"},
+
+      {axis:"CN", side:"C", tag:"構築", text:"我習慣或偏好透過修圖、調色、後製來調整照片呈現結果"},
+      {axis:"SE", side:"E", tag:"氛圍", text:"我可以接受照片中的人物沒有正面看鏡頭，或不是畫面中最突出的存在"},
+      {axis:"PF", side:"P", tag:"表演", text:"假如被邀請擺拍時，我通常能很快進入拍攝狀態"},
+      {axis:"RM", side:"R", tag:"紀錄", text:"我會希望照片能保留更多現場的細節與資訊"},
+
+      {axis:"CN", side:"C", tag:"構築", text:"我喜歡和攝影者討論照片想呈現的感覺或構圖"},
+      {axis:"SE", side:"S", tag:"主角", text:"我偏好照片的視線重心明確落在人物身上"},
+      {axis:"PF", side:"F", tag:"流動", text:"我比較容易在邊聊天、邊移動或在連續的動作之中呈現出比較自然的感覺"},
+      {axis:"RM", side:"M", tag:"情緒", text:"在影像之中，我更喜歡朦朧雨絲、因風而起的斑斕光影、人流之中的漫心駐足 … 等，來自氛圍帶給我的觸感"},
+
+      {axis:"CN", side:"N", tag:"自然", text:"在被拍攝的時候，我通常更願意把呈現方式交給攝影者去判斷"},
+      {axis:"SE", side:"S", tag:"主角", text:"如果照片正在描述一個故事，我通常會先注意人物正在做什麼"},
+      {axis:"PF", side:"F", tag:"流動", text:"有時候當我留意到鏡頭存在時，我原本的行為與節奏容易被中斷或打亂"},
+      {axis:"RM", side:"R", tag:"紀錄", text:"我喜歡幾年後看到照片時，還能明確想起當時發生的事情、地點、場景資訊"},
+
+      {axis:"CN", side:"C", tag:"構築", text:"如果照片中的自己不符合期待，我會希望重新調整自我狀態後再繼續拍攝"},
+      {axis:"SE", side:"S", tag:"主角", text:"我比較容易被以人物為主體的照片所吸引"},
+      {axis:"PF", side:"F", tag:"流動", text:"比起特別停下來進入拍照狀態，我更喜歡在原本正在做的事情中被自然側寫"},
+      {axis:"RM", side:"M", tag:"情緒", text:"我喜歡那種人物沒有刻意看向鏡頭，有時甚至看不清五官的照片"}
+    ];
+
+    const resultMap = {
+      CSPR:["鏡頭主演型","你很適合正式旅拍。知道鏡頭存在，也願意進入鏡頭，喜歡留下完整、好看、可回憶的自己。"],
+      CSPM:["情緒演出型","你會把拍照變成一場小型電影。適合氛圍感、角色感與情緒張力強的畫面。"],
+      CSFR:["安定旅拍型","你喜歡留下自己的樣子，但不想太像表演。陪伴式拍攝會比強烈指令更適合你。"],
+      CSFM:["留白主角型","你願意成為畫面中心，但更重視氣氛與情緒流動。夜景、窗邊、移動中的畫面很適合你。"],
+      CEPR:["精準敘事型","你在意畫面完成度，也喜歡自己成為場景的一部分。適合有空間感、旅行感的構圖。"],
+      CEPM:["場景共鳴型","你像是在和場景共同演出。照片重點常常不是單純的你，而是你和整個空氣的關係。"],
+      CEFR:["安靜紀錄型","你適合旅行隨拍。你不喜歡過多干涉，但又會默默注意自己的狀態，照片通常乾淨舒服。"],
+      CEFM:["空氣旅人型","你容易拍出像電影截圖的照片。背影、側臉、夜色與移動感會讓你很有餘韻。"],
+      NSPR:["自然明星型","你天生很好拍，不太需要準備，也不太怕鏡頭，旅行中常常一邊玩一邊成為主角。"],
+      NSPM:["感性發光型","你很容易在情緒裡發光。不一定刻意擺拍，但一進入氣氛就非常有存在感。"],
+      NSFR:["隨行紀錄型","你超適合旅行紀錄。不太刻意經營鏡頭，但又自然成為畫面焦點，照片很有一起旅行的真實感。"],
+      NSFM:["電影旅伴型","你像公路電影主角。不太在意拍照，卻常常在最自然的瞬間非常動人。"],
+      NEPR:["風景同行型","你不一定想成為焦點，但很會和環境互動。照片常呈現你和某個地方之間的關係。"],
+      NEPM:["情緒漫遊型","你會讓照片有朦朧的情緒。雨天、夜色、咖啡廳或街角都容易和你產生共鳴。"],
+      NEFR:["低調旅伴型","你不需要成為焦點，但願意讓照片記錄自己真的來過。最適合邊走邊拍的旅行感照片。"],
+      NEFM:["空氣幽靈型","你像存在於畫面裡的風。不主動回應鏡頭，也不刻意經營自己，但常常最有餘韻。"]
+    };
+
+    const axisInfo = {
+      CN:{left:"Curated 構築", right:"Natural 自然", letters:["C","N"], desc:"你偏好參與與控制畫面，還是保留當下自然形成的樣子。"},
+      SE:{left:"Spotlight 主角", right:"Environment 環境", letters:["S","E"], desc:"你希望自己是畫面焦點，或是成為旅途情境中的一部分。"},
+      PF:{left:"Perform 表演", right:"Flow 流動", letters:["P","F"], desc:"你偏向主動回應鏡頭，或是在行動流動中被自然側寫。"},
+      RM:{left:"Record 紀錄", right:"Mood 情緒", letters:["R","M"], desc:"你偏好紀錄事件與情境，還是保留更多的情緒與感受。"}
+    };
+
+    let currentPage = 0;
+    const questionsPerPage = 4;
+    let answers = [];
+
+    function $(id){return document.getElementById(id)}
+    function show(which){
+      ["start","quiz","result"].forEach(id => $(id).classList.add("hidden"));
+      $(which).classList.remove("hidden");
+      $(which).classList.remove("fade");
+      void $(which).offsetWidth;
+      $(which).classList.add("fade");
+    }
+    function startBgm(){
+      const bgm = $("bgm");
+      if(bgm){
+        bgm.volume = 0.45;
+        bgm.play().catch(() => {
+          // 瀏覽器可能會擋自動播放；使用者按下開始測驗後通常即可播放。
+        });
+      }
+    }
+    function startQuiz(){ currentPage=0; answers=[]; startBgm(); show("quiz"); renderPage(); }
+    function renderPage(){
+      const totalPages = Math.ceil(questions.length / questionsPerPage);
+      const startIndex = currentPage * questionsPerPage;
+      const endIndex = Math.min(startIndex + questionsPerPage, questions.length);
+      const answeredOnPage = countAnsweredOnPage(startIndex, endIndex);
+
+      const answeredCount = answers.filter(v => typeof v !== "undefined").length;
+      $("counter").textContent = `${answeredCount}/${questions.length}`;
+      $("progressBar").style.width = `${(answeredCount / questions.length) * 100}%`;
+      $("backBtn").disabled = currentPage === 0;
+      $("nextBtn").textContent = currentPage === totalPages - 1 ? "查看結果" : "下一頁";
+      $("nextBtn").disabled = answeredOnPage < (endIndex - startIndex);
+      $("nextBtn").style.opacity = $("nextBtn").disabled ? ".45" : "1";
+      $("nextBtn").style.cursor = $("nextBtn").disabled ? "not-allowed" : "pointer";
+
+      const list = $("questionList");
+      list.innerHTML = "";
+
+      for(let i = startIndex; i < endIndex; i++){
+        const q = questions[i];
+        const block = document.createElement("div");
+        block.className = "question-block";
+
+        const number = document.createElement("div");
+        number.className = "question-number";
+        number.textContent = `第 ${i + 1} 題`;
+
+        const text = document.createElement("div");
+        text.className = "question-text";
+        text.textContent = q.text;
+
+        const labels = document.createElement("div");
+        labels.className = "scale-labels";
+        labels.innerHTML = "<span>非常不同意</span><span>非常同意</span>";
+
+        const choices = document.createElement("div");
+        choices.className = "choices";
+
+        for(let value = 1; value <= 7; value++){
+          const btn = document.createElement("button");
+          btn.className = "choice" + (answers[i] === value ? " selected" : "");
+          btn.textContent = value;
+          btn.onclick = () => answer(i, value);
+          choices.appendChild(btn);
+        }
+
+        block.appendChild(number);
+        block.appendChild(text);
+        block.appendChild(labels);
+        block.appendChild(choices);
+        list.appendChild(block);
+      }
+    }
+
+    function countAnsweredOnPage(startIndex, endIndex){
+      let count = 0;
+      for(let i = startIndex; i < endIndex; i++){
+        if(typeof answers[i] !== "undefined") count++;
+      }
+      return count;
+    }
+
+    function answer(questionIndex, value){
+      answers[questionIndex] = value;
+      renderPage();
+    }
+
+    function goNext(){
+      const totalPages = Math.ceil(questions.length / questionsPerPage);
+      const startIndex = currentPage * questionsPerPage;
+      const endIndex = Math.min(startIndex + questionsPerPage, questions.length);
+
+      if(countAnsweredOnPage(startIndex, endIndex) < (endIndex - startIndex)){
+        alert("請先完成本頁 4 題，再前往下一頁。");
+        return;
+      }
+
+      if(currentPage < totalPages - 1){
+        currentPage++;
+        renderPage();
+      }else{
+        showResult();
+      }
+    }
+
+    function goBack(){
+      if(currentPage > 0){
+        currentPage--;
+
+        // 回上一頁後，清除該頁與後續所有答案，避免殘留舊計分
+        const clearFrom = currentPage * questionsPerPage;
+        answers = answers.slice(0, clearFrom);
+
+        renderPage();
+      }
+    }
+    function resetQuiz(){ show("start"); currentPage=0; answers=[]; }
+
+    function showResult(){
+      const incompleteIndex = questions.findIndex((_, i) => typeof answers[i] === "undefined");
+      if(incompleteIndex !== -1){
+        alert(`第 ${incompleteIndex + 1} 題尚未作答，請先完成全部題目。`);
+        return;
+      }
+      const scores = {};
+      Object.keys(axisInfo).forEach(axis=>{
+        scores[axis]={};
+        axisInfo[axis].letters.forEach(l=>scores[axis][l]=0);
+      });
+
+      const signed = {};
+      const itemCounts = {};
+      Object.keys(axisInfo).forEach(axis=>{
+        signed[axis] = 0;
+        itemCounts[axis] = 0;
+      });
+
+      questions.forEach((q,i)=>{
+        const value = answers[i] || 4;
+        const [leftLetter, rightLetter] = axisInfo[q.axis].letters;
+        const centered = value - 4; // 4 是中立；5-7 同意此題，1-3 不同意此題
+
+        // 題目屬於左側時：同意加左側，不同意加右側
+        // 題目屬於右側時：同意加右側，不同意加左側
+        signed[q.axis] += q.side === leftLetter ? centered : -centered;
+        itemCounts[q.axis] += 1;
+      });
+
+      const pick = {};
+      const perc = {};
+      Object.keys(axisInfo).forEach(axis=>{
+        const [a,b] = axisInfo[axis].letters;
+        const max = itemCounts[axis] * 3; // 每題最多偏移 3 分
+        const leftPercent = max ? Math.round(((signed[axis] + max) / (max * 2)) * 100) : 50;
+        const safeLeft = Math.max(0, Math.min(100, leftPercent));
+        const safeRight = 100 - safeLeft;
+
+        pick[axis] = safeLeft >= safeRight ? a : b;
+        perc[axis] = {
+          [a]: safeLeft,
+          [b]: safeRight
+        };
+      });
+
+      const code = pick.CN + pick.SE + pick.PF + pick.RM;
+      const data = resultMap[code] || ["未知旅人型","你的拍照氣場太神祕，連小狐仙都暫時讀不到完整輪廓。"];
+      $("resultCode").textContent = code;
+      $("resultName").textContent = data[0];
+      $("resultDesc").textContent = data[1];
+
+      const grid = $("axisGrid");
+      grid.innerHTML = "";
+      Object.keys(axisInfo).forEach(axis=>{
+        const info = axisInfo[axis];
+        const [a,b] = info.letters;
+        const leaningLetter = pick[axis];
+        const leaningName = leaningLetter === a ? info.left : info.right;
+        const card = document.createElement("div");
+        card.className = "axis-card";
+        card.innerHTML = `
+          <h3>${info.left} ${perc[axis][a]}%<br>${info.right} ${perc[axis][b]}%</h3>
+          <div class="mini-bar"><span style="width:${Math.max(8, perc[axis][a])}%"></span></div>
+          <div class="lean">此軸傾向：<b>${leaningName}</b><br>${info.desc}</div>
+        `;
+        grid.appendChild(card);
+      });
+      show("result");
+    }
+  </script>
+</body>
+</html>
