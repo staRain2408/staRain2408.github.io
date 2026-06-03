@@ -182,6 +182,21 @@
       width:100%;
     }
     /*.choice:hover{background:var(--yellow);color:#2d2940;transform:translateY(-2px)}*/
+    .axis-head{
+      font-size:12px;
+      font-weight:1000;
+      text-align:left;
+      margin-bottom:6px;
+    }
+    
+    .axis-tail{
+      font-size:12px;
+      font-weight:1000;
+      text-align:right;
+      margin-top:6px;
+      margin-bottom:10px;
+    }
+    
     @media (hover: hover) {
       .choice:hover{
         background:var(--yellow);
@@ -315,15 +330,15 @@
 
   <script>
     const questions = [
-      {axis:"CN", side:"C", tag:"構築", text:"我會在意自己在照片裡的樣子看起來是否符合自我期待"},
-      {axis:"SE", side:"E", tag:"氛圍", text:"在照片之中，我比較喜歡自己屬於場景中的一部分"},
-      {axis:"PF", side:"P", tag:"表演", text:"被拍攝時，我喜歡在場景中嘗試不同的表情、動作或狀態"},
-      {axis:"RM", side:"M", tag:"情緒", text:"有些照片吸引我的原因，很難用「它發生了什麼具體的事件」來解釋"},
-
       {axis:"CN", side:"N", tag:"自然", text:"我能接受照片忠實保留當下的狀態，即使可能不完全理想"},
       {axis:"SE", side:"E", tag:"氛圍", text:"我喜歡人物與場景一起構成照片的感覺"},
       {axis:"PF", side:"F", tag:"流動", text:"很多時候，我覺得自己最自然的照片都是在沒留意到鏡頭時出現的"},
       {axis:"RM", side:"R", tag:"紀錄", text:"有時候即使沒有明確事件，我也會因某張照片記住當下的感覺"},
+      
+      {axis:"CN", side:"C", tag:"構築", text:"我會在意自己在照片裡的樣子看起來是否符合自我期待"},
+      {axis:"SE", side:"E", tag:"氛圍", text:"在照片之中，我比較喜歡自己屬於場景中的一部分"},
+      {axis:"PF", side:"P", tag:"表演", text:"被拍攝時，我喜歡在場景中嘗試不同的表情、動作或狀態"},
+      {axis:"RM", side:"M", tag:"情緒", text:"有些照片吸引我的原因，很難用「它發生了什麼具體的事件」來解釋"},
 
       {axis:"CN", side:"C", tag:"構築", text:"拍照時，我會在意自己當下的表情、姿勢或儀容是否合適"},
       {axis:"SE", side:"E", tag:"氛圍", text:"我特別喜歡人物待在某個地方的樣子，例如街道、房間、窗邊或風景之中"},
@@ -570,13 +585,18 @@
         const card = document.createElement("div");
         card.className = "axis-card";
         card.innerHTML = `
-          <h3>${info.left} ${perc[axis][a]}%<br>${info.right} ${perc[axis][b]}%</h3>
+          <div class="axis-head">
+            ${perc[axis][a]}% ${info.left}
+          </div>
         
           <div class="mini-bar">
-            <span
-              class="${barClass}"
-              style="width:${Math.max(8, barPercent)}%">
+            <span class="${barClass}"
+                  style="width:${Math.max(8, barPercent)}%">
             </span>
+          </div>
+        
+          <div class="axis-tail">
+            ${perc[axis][b]}% ${info.right}
           </div>
         
           <div class="lean">
