@@ -231,7 +231,16 @@
     }
     .axis-card h3{font-size:12px;line-height:1.25;margin:0 0 7px;font-weight:1000}
     .mini-bar{height:7px;background:rgba(255,255,255,.20);border-radius:999px;overflow:hidden;margin-bottom:9px}
-    .mini-bar span{display:block;height:100%;background:var(--yellow);border-radius:999px}
+    .mini-bar span{
+      display:block;
+      height:100%;
+      background:var(--yellow);
+      border-radius:999px
+    }
+    
+    .mini-bar span.right{
+      margin-left:auto;
+    }
     .lean{font-size:12px;color:var(--muted);line-height:1.45}
     .lean b{color:var(--yellow)}
     .hidden{display:none}
@@ -547,12 +556,32 @@
         const [a,b] = info.letters;
         const leaningLetter = pick[axis];
         const leaningName = leaningLetter === a ? info.left : info.right;
+        
+        const barPercent =
+          leaningLetter === a
+            ? perc[axis][a]
+            : perc[axis][b];
+        
+        const barClass =
+          leaningLetter === a
+            ? ""
+            : "right";
+        
         const card = document.createElement("div");
         card.className = "axis-card";
         card.innerHTML = `
           <h3>${info.left} ${perc[axis][a]}%<br>${info.right} ${perc[axis][b]}%</h3>
-          <div class="mini-bar"><span style="width:${Math.max(8, perc[axis][a])}%"></span></div>
-          <div class="lean">此軸傾向：<b>${leaningName}</b><br>${info.desc}</div>
+        
+          <div class="mini-bar">
+            <span
+              class="${barClass}"
+              style="width:${Math.max(8, barPercent)}%">
+            </span>
+          </div>
+        
+          <div class="lean">
+            此軸傾向：<b>${leaningName}</b><br>${info.desc}
+          </div>
         `;
         grid.appendChild(card);
       });
